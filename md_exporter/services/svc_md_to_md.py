@@ -5,6 +5,8 @@ MdToMd service
 
 from pathlib import Path
 
+from ..utils.markdown_utils import get_md_text
+
 
 def convert_md_to_md(md_text: str, output_path: Path, is_strip_wrapper: bool = False) -> Path:
     """
@@ -20,8 +22,6 @@ def convert_md_to_md(md_text: str, output_path: Path, is_strip_wrapper: bool = F
         Exception: If conversion fails
     """
     # Process Markdown text
-    from ..utils.markdown_utils import get_md_text
-
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
 
     # Write to output file

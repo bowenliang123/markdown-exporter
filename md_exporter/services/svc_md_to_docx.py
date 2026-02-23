@@ -4,7 +4,9 @@ Markdown to DOCX conversion service
 Provides common functionality for converting Markdown to DOCX format
 """
 
+import os
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 from ..utils import get_logger
 from ..utils.markdown_utils import get_md_text
@@ -44,8 +46,6 @@ def convert_md_to_docx(
         extra_args.append(f"--reference-doc={final_template_path}")
 
     # Convert to DOCX - use pandoc_convert_file with temporary file since convert_text doesn't work for DOCX
-    from tempfile import NamedTemporaryFile
-
     with NamedTemporaryFile(suffix=".md", delete=False, mode="w", encoding="utf-8") as temp_md_file:
         temp_md_file.write(processed_md)
         temp_md_file_path = temp_md_file.name
@@ -61,8 +61,6 @@ def convert_md_to_docx(
         )
     finally:
         # Clean up temporary file
-        import os
-
         os.unlink(temp_md_file_path)
 
 

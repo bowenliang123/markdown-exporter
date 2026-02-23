@@ -5,6 +5,8 @@ MdToHtmlText service
 
 from pypandoc import convert_text
 
+from ..utils.markdown_utils import get_md_text
+
 
 def convert_md_to_html_text(md_text: str, is_strip_wrapper: bool = False) -> str:
     """
@@ -19,8 +21,6 @@ def convert_md_to_html_text(md_text: str, is_strip_wrapper: bool = False) -> str
         Exception: If conversion fails
     """
     # Process Markdown text
-    from ..utils.markdown_utils import get_md_text
-
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
 
     # Convert to HTML

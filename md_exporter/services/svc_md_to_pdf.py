@@ -6,6 +6,8 @@ Provides common functionality for converting Markdown to PDF format
 
 from pathlib import Path
 
+from xhtml2pdf import pisa
+
 from ..utils.markdown_utils import convert_markdown_to_html, get_md_text
 from ..utils.text_utils import contains_chinese, contains_japanese
 
@@ -69,9 +71,7 @@ def convert_md_to_pdf(md_text: str, output_path: Path, is_strip_wrapper: bool = 
     # Convert to HTML with font support
     html_str = convert_to_html_with_font_support(processed_md)
 
-    # Convert to PDF - import pisa here to avoid slow startup
-    from xhtml2pdf import pisa
-
+    # Convert to PDF
     result_file_bytes = pisa.CreatePDF(
         src=html_str,
         dest_bytes=True,

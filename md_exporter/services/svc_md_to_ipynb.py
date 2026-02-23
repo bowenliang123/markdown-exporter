@@ -4,6 +4,7 @@ Markdown to IPYNB conversion service
 Provides common functionality for converting Markdown to IPYNB format
 """
 
+import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
@@ -65,6 +66,4 @@ def convert_md_to_ipynb(md_text: str, output_path: Path, is_strip_wrapper: bool 
         )
     finally:
         # Clean up temporary file
-        import os
-
         os.unlink(temp_md_file_path)

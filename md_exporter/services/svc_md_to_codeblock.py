@@ -9,6 +9,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 from ..utils.logger_utils import get_logger
+from ..utils.markdown_utils import get_md_text
 
 logger = get_logger(__name__)
 
@@ -101,8 +102,6 @@ def convert_md_to_codeblock(
         Exception: If conversion fails
     """
     # Process Markdown text
-    from ..utils.markdown_utils import get_md_text
-
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
 
     # Extract code blocks

@@ -5,6 +5,9 @@ MdToLatex service
 
 from pathlib import Path
 
+from ..utils.markdown_utils import get_md_text
+from ..utils.table_utils import parse_md_to_tables
+
 
 def convert_md_to_latex(md_text: str, output_path: Path, is_strip_wrapper: bool = False) -> list[Path]:
     """
@@ -20,9 +23,6 @@ def convert_md_to_latex(md_text: str, output_path: Path, is_strip_wrapper: bool 
         Exception: If conversion fails
     """
     # Process Markdown text
-    from ..utils.markdown_utils import get_md_text
-    from ..utils.table_utils import parse_md_to_tables
-
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
 
     # Parse Markdown tables

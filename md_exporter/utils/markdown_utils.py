@@ -1,5 +1,7 @@
 import markdown
 
+from .text_utils import normalize_line_breaks, remove_think_tags
+
 
 def strip_markdown_wrapper(md_text: str) -> str:
     """Remove Markdown code block wrapper"""
@@ -46,8 +48,6 @@ def get_md_text(
     is_normalize_line_breaks: bool = True,
 ) -> str:
     """Process Markdown text"""
-    from .text_utils import normalize_line_breaks, remove_think_tags
-
     md_text = md_text.strip() if md_text else None
     if not md_text:
         raise ValueError("Empty input md_text")

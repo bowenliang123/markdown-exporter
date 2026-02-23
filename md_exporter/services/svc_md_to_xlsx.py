@@ -4,6 +4,7 @@ Markdown to XLSX conversion service
 Provides common functionality for converting Markdown tables to XLSX format
 """
 
+import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
@@ -52,6 +53,4 @@ def convert_md_to_xlsx(
         output_path.write_bytes(Path(temp_xlsx_path).read_bytes())
     finally:
         # Clean up temporary file
-        import os
-
         os.unlink(temp_xlsx_path)

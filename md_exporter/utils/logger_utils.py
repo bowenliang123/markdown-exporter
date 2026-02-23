@@ -8,7 +8,7 @@ def get_logger(name: str) -> logging.Logger:
 
     # Add Dify plugin logger handler if LOAD_FROM_DIFY_PLUGIN is set to "1" in main.py
     if os.environ.get("LOAD_FROM_DIFY_PLUGIN") == "1":
-        from dify_plugin.config.logger_format import plugin_logger_handler
+        from dify_plugin.config.logger_format import plugin_logger_handler  # noqa: PLC0415
 
         logger.addHandler(plugin_logger_handler)
 
