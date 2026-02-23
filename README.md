@@ -460,6 +460,9 @@ Releases are available at:
 - [Dify Marketplace Releases](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
 
 ### Changelog
+- 3.6.7
+  - Fixed path error issue for docx and pptx template files in Python distribution package
+
 - 3.6.6
   - Refactor code structure to ensure Agent Skill, Dify plugin and CLI properly share the core file transformation logic 
   - Make project installable and usable on OpenClaw as Agent Skill 🦞
