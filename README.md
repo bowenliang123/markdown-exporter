@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="_assets/icon.png" alt="Markdown Exporter Logo" width="200">
+  <img src="https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/icon.png" alt="Markdown Exporter Logo" width="200">
 </div>
 
 # Markdown Exporter
@@ -118,7 +118,7 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
 
 ## 📖 Usage Examples
 
-![Usage Demo](_assets/screenshots/usage_md_to_docx.png)
+![Usage Demo](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_docx.png)
 
 Simply input your Markdown text, select your desired output format, and click export. It's that easy!
 
@@ -143,7 +143,7 @@ Create professional Word documents with beautiful formatting.
 >
 > Check out the [default docx template](https://github.com/bowenliang123/markdown-exporter/blob/main/md_exporter/assets/template/docx_template.docx) or create your own. Learn how at [Customize or create new styles](https://support.microsoft.com/en-us/office/customize-or-create-new-styles-d38d6e47-f6fc-48eb-a607-1eb120dec563).
 
-![DOCX Example](_assets/screenshots/md_to_docx_1.png)
+![DOCX Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_docx_1.png)
 
 ---
 
@@ -162,7 +162,7 @@ Convert your Markdown tables into polished Excel spreadsheets with auto-fitted c
 ```
 
 **Output:**
-![XLSX Example](_assets/screenshots/md_to_xlsx_1.png)
+![XLSX Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_xlsx_1.png)
 
 ---
 
@@ -299,7 +299,7 @@ Remember to thank the audience and invite questions.
 ````
 
 **Output:**
-![PPTX Example](_assets/screenshots/md_to_pptx_1.png)
+![PPTX Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_pptx_1.png)
 
 ---
 
@@ -307,7 +307,7 @@ Remember to thank the audience and invite questions.
 
 Transform your Markdown into clean, semantic HTML perfect for web pages.
 
-![HTML Example](_assets/screenshots/md_to_html_1.png)
+![HTML Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_html_1.png)
 
 ---
 
@@ -315,7 +315,7 @@ Transform your Markdown into clean, semantic HTML perfect for web pages.
 
 Generate professional PDF documents perfect for printing or sharing.
 
-![PDF Example](_assets/screenshots/md_to_pdf_1.png)
+![PDF Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_pdf_1.png)
 
 ---
 
@@ -326,7 +326,7 @@ Convert your Markdown into beautiful PNG images. Great for:
 - Documentation screenshots
 - Quick sharing in chat apps
 
-![PNG Example](_assets/screenshots/md_to_png_1.png)
+![PNG Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_png_1.png)
 
 ---
 
@@ -371,7 +371,7 @@ This concludes the simplified test notebook.
 ````
 
 **Output File:**
-![IPYNB Example](_assets/screenshots/md_to_ipynb_1.png)
+![IPYNB Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_ipynb_1.png)
 
 ---
 
@@ -391,12 +391,12 @@ Effortlessly extract code blocks from your Markdown and save them as individual 
 | XML        | `.xml`         | Markdown   | `.md`          |
 | SVG        | `.svg`         |            |                |
 
-![Code Block Example 1](_assets/screenshots/usage_md_to_codeblock_2.png)
+![Code Block Example 1](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_2.png)
 
 **Pro Tip:** Enable compression to bundle all extracted files into a single ZIP archive for easy sharing and organization!
 
-![Code Block Example 2](_assets/screenshots/usage_md_to_codeblock_3.png)
-![Code Block Example 3](_assets/screenshots/usage_md_to_codeblock_4.png)
+![Code Block Example 2](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_3.png)
+![Code Block Example 3](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_4.png)
 
 
 
@@ -405,7 +405,7 @@ Effortlessly extract code blocks from your Markdown and save them as individual 
 
 Export your Markdown tables to universal CSV format.
 
-![CSV Example](_assets/screenshots/md_to_csv_1.png)
+![CSV Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_csv_1.png)
 
 ---
 
@@ -417,13 +417,13 @@ Convert your tables into structured data formats.
 - One JSON object per line
 - Perfect for streaming and logging
 
-![JSONL Example](_assets/screenshots/md_to_json_2.png)
+![JSONL Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_json_2.png)
 
 **JSON Array Style**
 - All objects in a single array
 - Ideal for API responses
 
-![JSON Example](_assets/screenshots/md_to_json_1.png)
+![JSON Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_json_1.png)
 
 ---
 
@@ -431,7 +431,7 @@ Convert your tables into structured data formats.
 
 Transform your data into XML format.
 
-![XML Example](_assets/screenshots/md_to_xml_1.png)
+![XML Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_xml_1.png)
 
 ---
 
@@ -440,10 +440,10 @@ Transform your data into XML format.
 Generate LaTeX source code for academic and technical documents.
 
 **LaTeX Output:**
-![LaTeX Example 1](_assets/screenshots/md_to_latex_1.png)
+![LaTeX Example 1](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_latex_1.png)
 
 **Compiled PDF:**
-![LaTeX Example 2](_assets/screenshots/md_to_latex_2.png)
+![LaTeX Example 2](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_latex_2.png)
 
 ---
 
