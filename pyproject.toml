@@ -43,8 +43,7 @@ module-name = "md_exporter"
 module-root = ""
 
 [tool.uv.build-backend.includes]
-assets = "assets/"
-assets_template = "assets/template/"
+assets = "md_exporter/assets/"
 
 [project.scripts]
 markdown-exporter = "md_exporter.cli:main"

@@ -72,7 +72,7 @@ def get_default_template() -> Path | None:
         Optional[Path]: Path to default template if it exists, None otherwise
     """
     script_dir = Path(__file__).resolve().parent.parent
-    default_template = script_dir.parent / "assets" / "template" / "docx_template.docx"
+    default_template = script_dir / "assets" / "template" / "docx_template.docx"
     if default_template.exists():
         return default_template
     else:
