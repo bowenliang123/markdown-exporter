@@ -1,17 +1,18 @@
 ---
 name: markdown-exporter
-description: Convert Markdown text to DOCX, PPTX, XLSX, PDF, PNG, HTML, IPYNB, MD, CSV, JSON, JSONL, XML files, and extract code blocks in Markdown to Python, Bash,JS and etc files. Also known as the md_exporter skill.
-disable: false
+description: Convert Markdown text to DOCX, PPTX, XLSX, PDF, PNG, HTML, IPYNB, MD, CSV, JSON, JSONL, XML files, and extract code blocks in Markdown to Python, Bash,JS and etc files.
+license: Apache-2.0
 metadata:
-  openclaw:
-    homepage: https://github.com/bowenliang123/markdown-exporter
-    emoji: 🖨
-    requires:
-      bins: [markdown-exporter]
-    install:
-      - kind: uv
-        package: md-exporter
-        bins: [markdown-exporter]
+   author: bowenliang123
+   openclaw:
+      homepage: https://github.com/bowenliang123/markdown-exporter
+      emoji: 🖨
+      requires:
+         bins: [ markdown-exporter ]
+      install:
+         - kind: uv
+           package: md-exporter
+           bins: [ markdown-exporter ]
 ---
 
 
