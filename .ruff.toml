@@ -9,5 +9,5 @@ select = [
     "UP",
     "E",
     "F",
-    "PLC0415",
+    "PLC",
 ]
