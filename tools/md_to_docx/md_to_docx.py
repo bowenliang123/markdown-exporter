@@ -1,5 +1,4 @@
 import logging
-import os
 from collections.abc import Generator
 from pathlib import Path
 from tempfile import NamedTemporaryFile
@@ -37,10 +36,6 @@ class MarkdownToDocxTool(Tool):
                 temp_pptx_template_file_path = temp_pptx_template_file.name
                 template_path = Path(temp_pptx_template_file_path)
             else:
-                # Get default template path
-                current_script_folder = Path(os.path.split(os.path.realpath(__file__))[0])
-                # Use scripts/lib's get_default_template function but adjust for tools directory structure
-                scripts_dir = current_script_folder.parent.parent / "scripts"
                 template_path = get_default_template()
 
             # Create temporary output file

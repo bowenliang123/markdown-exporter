@@ -6,7 +6,6 @@ Converts Markdown text to HTML and outputs to stdout
 
 import argparse
 import sys
-from pathlib import Path
 
 from ..services.svc_md_to_html_text import convert_md_to_html_text
 from ..utils.logger_utils import get_logger
