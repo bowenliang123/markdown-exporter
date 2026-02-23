@@ -6,8 +6,6 @@ Pandoc utility functions
 import os
 import tempfile
 
-from pypandoc import convert_file
-
 from md_exporter.utils import get_logger
 
 DEFAULT_ENABLED_INPUT_EXTENSIONS = []
@@ -31,6 +29,8 @@ def pandoc_convert_file(
     """
     Convert file using pandoc
     """
+    from pypandoc import convert_file  # noqa: PLC0415
+
     extra_args = extra_args or []
     enabled = enabled_input_extensions or []
     disabled = disabled_input_extensions or []

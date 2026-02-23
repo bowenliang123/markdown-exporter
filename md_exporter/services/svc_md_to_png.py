@@ -8,10 +8,6 @@ import zipfile
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
-import pymupdf
-from PIL import Image
-from xhtml2pdf import pisa
-
 from ..utils.logger_utils import get_logger
 from ..utils.markdown_utils import convert_markdown_to_html, get_md_text
 from ..utils.text_utils import contains_chinese, contains_japanese
@@ -68,6 +64,10 @@ def convert_md_to_png(
         ValueError: If input processing fails
         Exception: If conversion fails
     """
+    import pymupdf  # noqa: PLC0415
+    from PIL import Image  # noqa: PLC0415
+    from xhtml2pdf import pisa  # noqa: PLC0415
+
     # Process Markdown text
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
 
