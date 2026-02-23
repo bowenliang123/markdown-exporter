@@ -112,7 +112,7 @@ markdown-exporter md_to_csv <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -147,7 +147,7 @@ markdown-exporter md_to_pdf <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -189,7 +189,7 @@ markdown-exporter md_to_docx <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -231,7 +231,7 @@ markdown-exporter md_to_xlsx <input> <output> [options]
    This allows Excel to automatically determine cell types.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -266,7 +266,7 @@ markdown-exporter md_to_pptx <input> <output> [options]
    This uses a custom PowerPoint template for styling.
 
 **Sample Markdown Input:**
-Use the "Slides (for PPTX)" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Slides (for PPTX)" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -301,7 +301,7 @@ markdown-exporter md_to_codeblock <input> <output> [options]
    This extracts all code blocks and compresses them into a ZIP file.
 
 **Sample Markdown Input:**
-Use the "Code Blocks" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Code Blocks" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -343,7 +343,7 @@ markdown-exporter md_to_json <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -378,7 +378,7 @@ markdown-exporter md_to_xml <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -413,7 +413,7 @@ markdown-exporter md_to_latex <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -448,7 +448,7 @@ markdown-exporter md_to_html <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -470,7 +470,7 @@ markdown-exporter md_to_html_text /path/input.md
 ```
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -512,7 +512,7 @@ markdown-exporter md_to_png <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -535,7 +535,7 @@ markdown-exporter md_to_md /path/input.md /path/output.md
 ```
 
 **Sample Markdown Input:**
-Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 ---
 
@@ -570,7 +570,7 @@ markdown-exporter md_to_ipynb <input> <output> [options]
    This removes any code block wrappers (```) before processing the Markdown.
 
 **Sample Markdown Input:**
-Use the "Code Blocks" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section above.
+Use the "Code Blocks" example from the [Sample Markdown Inputs](#sample-markdown-inputs) section below.
 
 
 ### Sample Markdown Inputs
