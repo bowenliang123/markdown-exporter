@@ -18,8 +18,13 @@ sed -i '' "s/^version = \"[0-9]*\.[0-9]*\.[0-9]*\"/version = \"$VERSION\"/" pypr
 echo "Updating version in manifest.yaml to $VERSION..."
 sed -i '' "s/^version: [0-9]*\.[0-9]*\.[0-9]*/version: $VERSION/" manifest.yaml
 
+# Update uv.lock
+echo "Updating uv.lock..."
+uv sync
+
 echo "Version updated successfully to $VERSION"
 echo ""
 echo "Updated files:"
 echo "- pyproject.toml"
 echo "- manifest.yaml"
+echo "- uv.lock"
