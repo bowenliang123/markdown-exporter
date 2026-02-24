@@ -602,7 +602,7 @@ Releases are available at:
 
 ### Changelog
 - 3.6.9
-  - Reduced the packaged Dify plugin file size by 93% by removing the screenshot images for README docs.
+  - Reduced the packaged Dify plugin file size by 95% by removing the screenshot images for README docs.
 
 - 3.6.7
   - Fixed path error issue for docx and pptx template files in Python distribution package
