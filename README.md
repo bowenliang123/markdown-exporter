@@ -1,16 +1,16 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/icon.png" alt="Markdown Exporter Logo" width="200">
-  <p align="center">
-    <a href="https://github.com/bowenliang123/markdown-exporter" target="_blank">
-        <img alt="Github" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-white?logo=github"></a>
-    <a href="https://marketplace.dify.ai/plugin/bowenliang123/md_exporter" target="_blank">
-        <img alt="Github" src="https://img.shields.io/badge/Dify-md__exporter-blue"></a>
-    <a href="https://clawhub.ai/bowenliang123/markdown-exporter" target="_blank">
-        <img alt="Github" src="https://img.shields.io/badge/🦞OpenClaw-markdown--exporter-red"></a>
-    <a href="https://pypi.org/project/md-exporter/" target="_blank">
-        <img alt="Github" src="https://img.shields.io/badge/PyPI-md--exporter-yellow?logo=python"></a>
-  </p>
 </div>
+<p align="center">
+  <a href="https://github.com/bowenliang123/markdown-exporter" target="_blank">
+      <img alt="Github" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-white?logo=github"></a>
+  <a href="https://marketplace.dify.ai/plugin/bowenliang123/md_exporter" target="_blank">
+      <img alt="Github" src="https://img.shields.io/badge/Dify-md__exporter-blue"></a>
+  <a href="https://clawhub.ai/bowenliang123/markdown-exporter" target="_blank">
+      <img alt="Github" src="https://img.shields.io/badge/🦞OpenClaw-markdown--exporter-red"></a>
+  <a href="https://pypi.org/project/md-exporter/" target="_blank">
+      <img alt="Github" src="https://img.shields.io/badge/PyPI-md--exporter-yellow?logo=python"></a>
+</p>
 
 # Markdown Exporter
 ### An Agent Skill and Dify plugin to Export Markdown Into Powerful Documents
