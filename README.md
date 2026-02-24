@@ -3,7 +3,7 @@
 </div>
 <p align="center">
   <a href="https://github.com/bowenliang123/markdown-exporter" target="_blank">
-      <img alt="Github" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-white?logo=github"></a>
+      <img alt="Github" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-lightgray?logo=github"></a>
   <a href="https://marketplace.dify.ai/plugin/bowenliang123/md_exporter" target="_blank">
       <img alt="Github" src="https://img.shields.io/badge/Dify-md__exporter-blue"></a>
   <a href="https://clawhub.ai/bowenliang123/markdown-exporter" target="_blank">
