@@ -186,3 +186,22 @@ dev/*.sh
 
 # ClawHub skill folder
 clawhub-skill/
+
+# Python linting
+.ruff_cache
+.ruff.toml
+
+# Github Actions
+.github/
+
+# screenshots images
+_assets/screenshots/
+
+# test output
+test_output/
+
+# Python packaing
+MANIFEST.in
+
+# env example
+.env.example
