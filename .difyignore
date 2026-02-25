@@ -205,3 +205,6 @@ MANIFEST.in
 
 # env example
 .env.example
+
+# Python project configuration
+pyproject.toml
