@@ -22,6 +22,7 @@ def main():
     parser.add_argument("output", help="Output DOCX file path")
     parser.add_argument("--template", help="Path to DOCX template file (optional)")
     parser.add_argument("--strip-wrapper", action="store_true", help="Remove code block wrapper if present")
+    parser.add_argument("--toc", action="store_true", help="Include table of contents in the output")
 
     args = parser.parse_args()
 
@@ -43,7 +44,7 @@ def main():
     # Convert to DOCX
     output_path = Path(args.output)
     try:
-        convert_md_to_docx(md_text, output_path, template_path, args.strip_wrapper)
+        convert_md_to_docx(md_text, output_path, template_path, args.strip_wrapper, args.toc)
         logger.info(f"Successfully converted to {output_path}")
     except ValueError as e:
         logger.error(f"Error: {e}")

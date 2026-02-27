@@ -41,6 +41,26 @@ parameters:
       en_US: Optional custom output file name, and the filename suffix is not required.
       zh_Hans: 可选的自定义输出文件名，后缀名无需指定
     form: llm
+  - name: toc
+    type: select
+    required: false
+    default: "false"
+    options:
+      - value: "true"
+        label:
+          en_US: "Yes"
+          zh_Hans: 是
+      - value: "false"
+        label:
+          en_US: "No"
+          zh_Hans: 否
+    label:
+      en_US: Include Table of Contents
+      zh_Hans: 包含目录
+    human_description:
+      en_US: Whether to include table of contents in the output DOCX file. Enter "Yes" or "No".
+      zh_Hans: 是否在输出的 DOCX 文件中包含目录。输入 "Yes" 或 "No"。
+    form: llm
 extra:
   python:
     source: tools/md_to_docx/md_to_docx.py

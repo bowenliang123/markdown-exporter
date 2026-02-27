@@ -17,19 +17,30 @@ class TestBase(unittest.TestCase):
         # List to store files and directories to clean up
         self._outputs_to_clean = []
 
-    def run_script(self, script_name, input_file, output_file):
+    def run_script(self, script_name, input_file, output_file, *args):
         """Run the specified script with given input and output files/directories."""
         # Register output for cleanup
         self.register_output(output_file)
 
+        # Convert script path to module path (remove .py and replace / with .)
+        module_name = script_name.replace('.py', '').replace('/', '.')
+        
+        # Build command with optional additional arguments
+        cmd = ["uv", "run", "python", "-m", f"md_exporter.{module_name}", input_file, output_file]
+        if args:
+            cmd.extend(args)
+
         subprocess.run(
-            ["uv", "run", "python", f"scripts/{script_name}", input_file, output_file], check=True, env=self.env
+            cmd, check=True, env=self.env
         )
 
     def run_script_with_output(self, script_name, input_file):
         """Run the specified script with given input and capture stdout output."""
+        # Convert script path to module path (remove .py and replace / with .)
+        module_name = script_name.replace('.py', '').replace('/', '.')
+        
         return subprocess.run(
-            ["uv", "run", "python", f"scripts/{script_name}", input_file],
+            ["uv", "run", "python", "-m", f"md_exporter.{module_name}", input_file],
             check=True,
             capture_output=True,
             text=True,

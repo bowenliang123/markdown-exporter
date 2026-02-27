@@ -16,7 +16,11 @@ logger = get_logger(__name__)
 
 
 def convert_md_to_docx(
-    md_text: str, output_path: Path, template_path: Path | None = None, is_strip_wrapper: bool = False
+    md_text: str,
+    output_path: Path,
+    template_path: Path | None = None,
+    is_strip_wrapper: bool = False,
+    is_enable_toc: bool = False,
 ) -> None:
     """
     Convert Markdown text to DOCX format
@@ -26,6 +30,7 @@ def convert_md_to_docx(
         output_path: Path to save the output DOCX file
         template_path: Optional path to DOCX template file
         is_strip_wrapper: Whether to remove code block wrapper if present
+        is_enable_toc: Whether to include table of contents in the output
 
     Raises:
         ValueError: If input processing fails
@@ -44,6 +49,10 @@ def convert_md_to_docx(
     extra_args = []
     if final_template_path and final_template_path.exists():
         extra_args.append(f"--reference-doc={final_template_path}")
+
+    # Add table of contents flag if requested
+    if is_enable_toc:
+        extra_args.append("--toc")
 
     # Convert to DOCX - use pandoc_convert_file with temporary file since convert_text doesn't work for DOCX
     with NamedTemporaryFile(suffix=".md", delete=False, mode="w", encoding="utf-8") as temp_md_file:

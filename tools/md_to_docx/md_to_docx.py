@@ -23,6 +23,7 @@ class MarkdownToDocxTool(Tool):
         # get parameters
         md_text = get_md_text_from_tool_params(tool_parameters, is_strip_wrapper=True)
         docx_template_file: File | None = tool_parameters.get("docx_template_file")
+        is_enable_toc: bool = tool_parameters.get("toc", "false").strip().lower() == "false"
         temp_pptx_template_file_path: str | None = None
         if docx_template_file and not isinstance(docx_template_file, File):
             raise ValueError("Not a valid file for pptx template file")
@@ -44,7 +45,13 @@ class MarkdownToDocxTool(Tool):
 
             try:
                 # Convert to DOCX using the public service
-                convert_md_to_docx(md_text, temp_output_path, template_path, is_strip_wrapper=True)
+                convert_md_to_docx(
+                    md_text,
+                    temp_output_path,
+                    template_path,
+                    is_strip_wrapper=True,
+                    is_enable_toc=is_enable_toc,
+                )
 
                 # Read the converted file content
                 result_file_bytes = temp_output_path.read_bytes()
