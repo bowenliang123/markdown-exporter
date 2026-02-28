@@ -20,15 +20,17 @@ class MarkdownToDocxTool(Tool):
         """
         invoke tools
         """
-        # get parameters
-        md_text = get_md_text_from_tool_params(tool_parameters, is_strip_wrapper=True)
-        docx_template_file: File | None = tool_parameters.get("docx_template_file")
-        is_enable_toc: bool = tool_parameters.get("enable_toc", "false").strip().lower() == "true"
         temp_pptx_template_file_path: str | None = None
-        if docx_template_file and not isinstance(docx_template_file, File):
-            raise ValueError("Not a valid file for pptx template file")
 
         try:
+            # get parameters
+            md_text = get_md_text_from_tool_params(tool_parameters, is_strip_wrapper=True)
+            docx_template_file: File | None = tool_parameters.get("docx_template_file")
+            enable_toc_value = tool_parameters.get("enable_toc", "false")
+            is_enable_toc: bool = str(enable_toc_value).strip().lower() == "true"
+
+            if docx_template_file and not isinstance(docx_template_file, File):
+                raise ValueError("Not a valid file for docx template file")
             template_path = None
             if docx_template_file:
                 temp_pptx_template_file = NamedTemporaryFile(delete=False)

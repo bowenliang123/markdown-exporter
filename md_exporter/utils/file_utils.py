@@ -2,7 +2,7 @@ from .mimetype_utils import MimeType
 
 
 def get_meta_data(mime_type: MimeType, output_filename: str | None) -> dict[str, str]:
-    if not MimeType:
+    if not mime_type:
         raise ValueError("Failed to generate meta data, mime_type is not defined")
 
     # normalize the filename
