@@ -15,6 +15,8 @@
 # Markdown Exporter
 ### An Agent Skill and Dify plugin to Export Markdown Into Powerful Documents
 
+<!-- mcp-name: io.github.bowenliang123/markdown-exporter -->
+
 
 
 - Author: [bowenliang123](https://github.com/bowenliang123)
@@ -29,6 +31,7 @@
 | Agent Skills                 | **Platforms**: Any platform supporting [Agent Skills](https://agentskills.io) <br/> - **IDEs/CLIs**: [Claude Code](https://code.claude.com/docs/en/skills), [Trae](https://docs.trae.ai/ide/skills), [Codebuddy](https://copilot.tencent.com/docs/cli/skills), etc. <br/> - **Agent Frameworks**: [LangChain DeepAgents](https://www.blog.langchain.com/using-skills-with-deep-agents/), [AgentScope](https://doc.agentscope.io/tutorial/task_agent_skill.html), etc. <br/><br/> **Installation**: <br/> - **Local Import**: Download and import [source code zip](https://github.com/bowenliang123/markdown-exporter/archive/refs/heads/main.zip) <br/> - **Remote Install**: `/plugin marketplace add bowenliang123/markdown-exporter` in agent CLIs |
 | OpenClaw Skills 🦞           | **Platform**: [OpenClaw](https://docs.openclaw.ai/tools/skills#clawhub-install-%2B-sync) <br/> - Install from [ClawHub](https://clawhub.ai/bowenliang123/markdown-exporter): `npx clawhub@latest install markdown-exporter`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Command Line Interface (CLI) | **Platform**: Python<br/> - Install from [PyPI](https://pypi.org/project/md-exporter/): `pip install md-exporter`<br/> - Run: `markdown-exporter -h` for usage information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| MCP Server (Prototype)       | **Platforms**: Codex, Claude Desktop, Cursor, VS Code, and other MCP clients <br/> **Installation**: <br/> - Local project: point your MCP client at the `markdown-exporter-mcp` executable in the project virtual environment <br/> - Published package: use a portable launcher command after publishing a dedicated MCP package |
 
 ---
 
@@ -596,6 +599,71 @@ markdown-exporter md_to_ipynb <input> <output> [options]
 ---
 
 ## 📢 Releases
+## MCP Server Usage
+
+`markdown-exporter` now includes a prototype MCP server entry point named `markdown-exporter-mcp`.
+
+### Available MCP Tools
+
+- `export_docx`
+- `export_pdf`
+- `export_pptx`
+- `export_xlsx`
+- `export_html`
+- `export_json`
+
+These tools accept Markdown text directly, generate output files in a managed artifact directory, and return structured metadata for the created artifacts.
+
+### Local Setup
+
+```bash
+uv sync
+```
+
+The MCP server uses stdio transport and is meant to be launched by an MCP client:
+
+```bash
+uv run markdown-exporter-mcp
+```
+
+For a portable launcher after publishing to PyPI, prefer:
+
+```bash
+uvx --from md-exporter markdown-exporter-mcp
+```
+
+### Codex Configuration
+
+Add the following to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.markdown_exporter]
+command = "uvx"
+args = ["--from", "md-exporter", "markdown-exporter-mcp"]
+```
+
+### Generic MCP Client Configuration
+
+```json
+{
+  "mcpServers": {
+    "markdown-exporter": {
+      "command": "uvx",
+      "args": ["--from", "md-exporter", "markdown-exporter-mcp"]
+    }
+  }
+}
+```
+
+### Notes
+
+- The current MCP implementation is a prototype focused on core document export flows.
+- Generated files are written to a managed artifact directory and returned as structured outputs.
+- `md_to_png`, `md_to_ipynb`, `md_to_xml`, `md_to_latex`, and `md_to_codeblock` are not exposed as MCP tools yet.
+- The repository includes [`server.json`](/D:/AIGC/changetomcp/markdown-exporter/server.json) as MCP Registry metadata scaffolding for a future official registry submission.
+
+---
+
 Releases are available at:
 - [GitHub Repo Releases](https://github.com/bowenliang123/markdown-exporter/releases)
 - [Dify Marketplace Releases](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)

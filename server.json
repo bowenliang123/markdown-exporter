@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.bowenliang123/markdown-exporter",
+  "title": "Markdown Exporter",
+  "description": "Convert Markdown into DOCX, PDF, PPTX, XLSX, HTML, and JSON through a standard MCP server.",
+  "repository": {
+    "url": "https://github.com/bowenliang123/markdown-exporter",
+    "source": "github"
+  },
+  "version": "3.6.9",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "md-exporter",
+      "version": "3.6.9",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

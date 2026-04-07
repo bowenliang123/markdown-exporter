@@ -17,6 +17,8 @@ dependencies = [
     "PyMuPDF~=1.27.1",
     "pillow~=12.1.1",
     "pypandoc-binary~=1.16.2",
+    "mcp>=1.27.0",
+    "pydantic>=2.12.5",
 ]
 
 [dependency-groups]
@@ -35,11 +37,11 @@ Issues = "https://github.com/bowenliang123/markdown-exporter/issues"
 Changelog = "https://github.com/bowenliang123/markdown-exporter/?tab=readme-ov-file#-changelog"
 
 [build-system]
-requires = ["uv_build>=0.10.4,<0.11.0"]
+requires = ["uv_build>=0.11.3,<0.12.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "md_exporter"
+module-name = ["md_exporter", "markdown_exporter_mcp"]
 module-root = ""
 
 [tool.uv.build-backend.includes]
@@ -47,3 +49,4 @@ assets = "md_exporter/assets/"
 
 [project.scripts]
 markdown-exporter = "md_exporter.cli:main"
+markdown-exporter-mcp = "markdown_exporter_mcp.server:main"
