@@ -30,7 +30,7 @@ CSS_FOR_TABLE = """
 
 def convert_markdown_to_html(md_text: str) -> str:
     """Convert Markdown to HTML"""
-    html = markdown.markdown(text=md_text, extensions=["extra", "toc"])
+    html = markdown.markdown(text=md_text, extensions=["extra", "toc", "nl2br"])
     return (
         f"""
     {html}
