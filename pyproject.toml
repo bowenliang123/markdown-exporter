@@ -22,7 +22,6 @@ dependencies = [
 dev = [
     "pytest>=9.0.2",
     "ruff>=0.15.2",
-    "pymupdf>=1.25.5",
 ]
 dify = [
     "dify_plugin~=0.7.1",

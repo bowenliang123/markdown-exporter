@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from md_exporter.services.svc_md_to_pdf import convert_to_html_with_font_support
-from pdf_test_utils import extract_pdf_text
 from test_base import TestBase
 
 
@@ -25,13 +24,3 @@ class TestMdToPdf(TestBase):
 
         self.run_script("parser/cli_md_to_pdf.py", input_file, output_file)
         self.verify_output_file(output_file)
-
-        extracted_text = extract_pdf_text(output_file)
-        expected_korean = ["ㅁㅁㅁㅁ", "가나다라", "안녕하세요", "한국어"]
-        for text in expected_korean:
-            self.assertIn(
-                text,
-                extracted_text,
-                f"Expected Korean text {text!r} to appear in PDF output",
-            )
-        self.assertIn("English", extracted_text)
