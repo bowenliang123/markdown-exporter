@@ -9,6 +9,11 @@ CHINESE_CHAR_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 # Regex pattern for matching Japanese characters
 JAPANESE_CHAR_PATTERN = re.compile(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]")
 
+# Regex pattern for matching Korean (Hangul) characters
+KOREAN_CHAR_PATTERN = re.compile(
+    r"[\u1100-\u11FF\u3130-\u318F\uA960-\uA97F\uAC00-\uD7AF\uD7B0-\uD7FF]"
+)
+
 
 def contains_chinese(text: str) -> bool:
     """Check if contains Chinese characters"""
@@ -18,6 +23,11 @@ def contains_chinese(text: str) -> bool:
 def contains_japanese(text: str) -> bool:
     """Check if contains Japanese characters"""
     return bool(JAPANESE_CHAR_PATTERN.search(text))
+
+
+def contains_korean(text: str) -> bool:
+    """Check if contains Korean (Hangul) characters"""
+    return bool(KOREAN_CHAR_PATTERN.search(text))
 
 
 def remove_think_tags(text: str) -> str:

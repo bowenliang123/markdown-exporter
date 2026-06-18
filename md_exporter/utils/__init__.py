@@ -4,7 +4,13 @@ from .markdown_utils import convert_markdown_to_html, get_md_text, strip_markdow
 from .mimetype_utils import MimeType
 from .param_utils import get_md_text_from_tool_params, get_param_value
 from .table_utils import SUGGESTED_SHEET_NAME, extract_headings, parse_md_to_tables
-from .text_utils import contains_chinese, contains_japanese, normalize_line_breaks, remove_think_tags
+from .text_utils import (
+    contains_chinese,
+    contains_japanese,
+    contains_korean,
+    normalize_line_breaks,
+    remove_think_tags,
+)
 
 __all__ = [
     # file_utils
@@ -27,6 +33,7 @@ __all__ = [
     # text_utils
     "contains_chinese",
     "contains_japanese",
+    "contains_korean",
     "remove_think_tags",
     "normalize_line_breaks",
 ]

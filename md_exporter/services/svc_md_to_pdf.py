@@ -7,12 +7,29 @@ Provides common functionality for converting Markdown to PDF format
 from pathlib import Path
 
 from ..utils.markdown_utils import convert_markdown_to_html, get_md_text
-from ..utils.text_utils import contains_chinese, contains_japanese
+from ..utils.text_utils import contains_chinese, contains_japanese, contains_korean
+
+_CJK_TEXT_SELECTORS = "html, body, p, h1, h2, h3, h4, h5, h6, li, ul, ol, td, th, span, div"
+
+
+def _build_cjk_font_families(md_text: str) -> str:
+    """Build a CSS font-family list based on scripts present in the text."""
+    fonts: list[str] = []
+
+    if contains_korean(md_text):
+        fonts.extend(["HYSMyeongJo-Medium", "HYGoThic-Medium"])
+    if contains_chinese(md_text):
+        fonts.extend(["STSong-Light", "MSung-Light"])
+    if contains_japanese(md_text):
+        fonts.append("HeiseiMin-W3")
+
+    fonts.append("sans-serif")
+    return ", ".join(f'"{name}"' if name != "sans-serif" else name for name in fonts)
 
 
 def convert_to_html_with_font_support(md_text: str) -> str:
     """
-    Convert Markdown to HTML and add Chinese/Japanese font support
+    Convert Markdown to HTML and add CJK font support
 
     Args:
         md_text: Markdown text to convert
@@ -22,23 +39,15 @@ def convert_to_html_with_font_support(md_text: str) -> str:
     """
     html_str = convert_markdown_to_html(md_text)
 
-    if not contains_chinese(md_text) and not contains_japanese(md_text):
+    if not contains_chinese(md_text) and not contains_japanese(md_text) and not contains_korean(md_text):
         return html_str
 
-    # Add Chinese/Japanese font CSS
-    font_families = ",".join(
-        [
-            "Sans-serif",
-            "STSong-Light",
-            "MSung-Light",
-            "HeiseiMin-W3",
-        ]
-    )
+    font_families = _build_cjk_font_families(md_text)
     css_style = f"""
     <style>
-        html {{
+        {_CJK_TEXT_SELECTORS} {{
             -pdf-word-wrap: CJK;
-            font-family: "{font_families}"; 
+            font-family: {font_families};
         }}
     </style>
     """
