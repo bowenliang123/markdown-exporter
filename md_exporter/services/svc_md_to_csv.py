@@ -38,7 +38,7 @@ def convert_md_to_csv(
     # Convert to CSV
     csv_strings = []
     for table in tables:
-        csv_str = table.to_csv(index=False, encoding="utf-8")
+        csv_str = table.to_csv(index=False)
         csv_strings.append(csv_str)
 
     if return_strings:
@@ -53,8 +53,8 @@ def convert_md_to_csv(
         else:
             output_file = output_path
 
-        # Write to file
-        output_file.write_text(csv_str, encoding="utf-8")
+        # Write to file with auto-detected encoding (BOM for multibyte content)
+        output_file.write_text(csv_str, encoding=get_csv_output_encoding(csv_str))
         created_files.append(output_file)
 
     return created_files
