@@ -72,6 +72,10 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
     <td>🌐 HTML text string</td>
   </tr>
   <tr>
+    <td><code>md_to_jira</code></td>
+    <td>🅹 Jira wiki markup text</td>
+  </tr>
+  <tr>
     <td><code>md_to_pdf</code></td>
     <td>📑 PDF file (.pdf)</td>
   </tr>
@@ -549,6 +553,12 @@ markdown-exporter md_to_html <input> <output> [options]
 #### md_to_html_text - Convert Markdown to HTML Text
 ```bash
 markdown-exporter md_to_html_text <input>
+```
+- **Arguments**: `input` (Markdown file path)
+
+#### md_to_jira - Convert Markdown to Jira Wiki Markup
+```bash
+markdown-exporter md_to_jira <input>
 ```
 - **Arguments**: `input` (Markdown file path)
 

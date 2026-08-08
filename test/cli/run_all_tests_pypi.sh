@@ -82,7 +82,7 @@ markdown-exporter --help || true
 
 # Test each subcommand with --help
 echo "Step 5: Testing each subcommand with --help"
-subcommands=("md_to_codeblock" "md_to_csv" "md_to_docx" "md_to_html" "md_to_html_text" "md_to_ipynb" "md_to_json" "md_to_latex" "md_to_md" "md_to_pdf" "md_to_pptx" "md_to_xlsx" "md_to_xml")
+subcommands=("md_to_codeblock" "md_to_csv" "md_to_docx" "md_to_html" "md_to_html_text" "md_to_ipynb" "md_to_jira" "md_to_json" "md_to_latex" "md_to_md" "md_to_pdf" "md_to_pptx" "md_to_xlsx" "md_to_xml")
 
 for subcommand in "${subcommands[@]}"; do
     echo "Testing $subcommand..."
@@ -108,6 +108,7 @@ test_scripts=(
     "test_cli_md_to_html.sh"
     "test_cli_md_to_html_text.sh"
     "test_cli_md_to_ipynb.sh"
+    "test_cli_md_to_jira.sh"
     "test_cli_md_to_json.sh"
     "test_cli_md_to_latex.sh"
     "test_cli_md_to_md.sh"

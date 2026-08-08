@@ -1,0 +1,25 @@
+identity:
+  name: md_to_jira
+  author: bowenliang123
+  label:
+    en_US: Markdown ⮕ Jira Wiki Markup
+    zh_Hans: Markdown ⮕ Jira 文本标记
+  description:
+    human:
+      en_US: Generate Jira wiki markup text from Markdown.
+      zh_Hans: 将 Markdown 转换为 Jira 文本标记的工具
+    llm: Generate Jira wiki markup text from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    form: llm
+extra:
+  python:
+    source: tools/md_to_jira/md_to_jira.py

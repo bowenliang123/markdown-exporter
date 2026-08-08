@@ -10,6 +10,7 @@ SUBCOMMANDS = {
     "md_to_html": "md_exporter.parser.cli_md_to_html",
     "md_to_html_text": "md_exporter.parser.cli_md_to_html_text",
     "md_to_ipynb": "md_exporter.parser.cli_md_to_ipynb",
+    "md_to_jira": "md_exporter.parser.cli_md_to_jira",
     "md_to_json": "md_exporter.parser.cli_md_to_json",
     "md_to_latex": "md_exporter.parser.cli_md_to_latex",
     "md_to_md": "md_exporter.parser.cli_md_to_md",

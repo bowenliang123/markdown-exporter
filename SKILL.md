@@ -29,6 +29,7 @@ This [SKILL.md](https://github.com/bowenliang123/markdown-exporter/blob/main/SKI
 | `md_to_docx` | 📝 Markdown text | 📄 Word document (.docx) |
 | `md_to_html` | 📝 Markdown text | 🌐 HTML file (.html) |
 | `md_to_html_text` | 📝 Markdown text | 🌐 HTML text string |
+| `md_to_jira` | 📝 Markdown text | 🅹 Jira wiki markup text |
 | `md_to_pdf` | 📝 Markdown text | 📑 PDF file (.pdf) |
 | `md_to_md` | 📝 Markdown text | 📝 Markdown file (.md) |
 | `md_to_ipynb` | 📝 Markdown text | 📓 Jupyter Notebook (.ipynb) |
@@ -467,6 +468,28 @@ markdown-exporter md_to_html_text <input>
 **Example:**
 ```bash
 markdown-exporter md_to_html_text /path/input.md
+```
+
+**Sample Markdown Input:**
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs - Basic Text and Tables](#basic-text-and-tables) section below.
+
+---
+
+### md_to_jira - Convert Markdown to Jira Wiki Markup
+
+Converts Markdown text to Jira wiki markup and outputs to stdout.
+
+**Usage:**
+```bash
+markdown-exporter md_to_jira <input>
+```
+
+**Arguments:**
+- `input` - Input Markdown file path
+
+**Example:**
+```bash
+markdown-exporter md_to_jira /path/input.md
 ```
 
 **Sample Markdown Input:**
