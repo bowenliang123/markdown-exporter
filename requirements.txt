@@ -1,16 +1,16 @@
 # dify plugin python sdk
-dify_plugin~=0.7.1
+dify_plugin~=0.10.1
 
 # markdown
-markdown~=3.10.2
+markdown~=3.10.3
 
 # for markdown tables
-pandas[excel,html,xml]~=3.0.1
+pandas[excel,html,xml]~=3.0.5
 
 # for markdown to pdf
 xhtml2pdf~=0.2.17
 
-pillow~=12.1.0
+pillow~=12.3.0
 
 # pandoc
-pypandoc-binary~=1.16.2
+pypandoc-binary~=1.17

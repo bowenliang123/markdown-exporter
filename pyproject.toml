@@ -3,28 +3,28 @@ name = "md-exporter"
 version = "3.6.9"
 description = "An Agent Skill and Dify plugin to Convert markdown text into files in various formats such as DOCX, XLSX, PDF, PPTX and more."
 license = "Apache-2.0"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 authors = [
     { name = "bowenliang123", email = "liang.bowen.123@qq.com" },
 ]
 readme = "README.md"
 
 dependencies = [
-    "markdown>=3.10.2",
-    "pandas[excel,html,xml]~=3.0.1",
+    "markdown>=3.10.3",
+    "pandas[excel,html,xml]~=3.0.5",
     "jinja2>=3.1.6",
     "xhtml2pdf~=0.2.17",
-    "pillow~=12.1.1",
-    "pypandoc-binary~=1.16.2",
+    "pillow~=12.3.0",
+    "pypandoc-binary~=1.17",
 ]
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.2",
-    "ruff>=0.15.2",
+    "pytest>=9.1.1",
+    "ruff>=0.16.2",
 ]
 dify = [
-    "dify_plugin~=0.7.1",
+    "dify_plugin~=0.10.1",
 ]
 
 [project.urls]
