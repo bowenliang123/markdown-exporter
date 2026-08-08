@@ -49,6 +49,10 @@ jobs:
           echo "Plugin author: $AUTHOR"
           echo "author=$AUTHOR" >> $GITHUB_OUTPUT
 
+          REPO=$(grep "^repo:" manifest.yaml | cut -d' ' -f2)
+          echo "Source repository: $REPO"
+          echo "repo=$REPO" >> $GITHUB_OUTPUT
+
       - name: Package Plugin
         id: package
         run: |
@@ -111,8 +115,19 @@ jobs:
           # Add and commit changes (using git add .)
           git add .
           git status # for debugging
-          # Use variables in commit message
+          # Commit message
           git commit -m "bump ${{ steps.get_basic_info.outputs.plugin_name }} plugin to version ${{ steps.get_basic_info.outputs.version }}"
+
+          # Generate PR body from the official plugin submission template,
+          # filling in the fields known from the manifest
+          PR_BODY="$RUNNER_TEMP/pr_body.md"
+          sed -e "s|^- \*\*Author\*\*:$|- **Author**: ${{ steps.get_basic_info.outputs.author }}|" \
+              -e "s|^- \*\*Plugin name\*\*:$|- **Plugin name**: ${{ steps.get_basic_info.outputs.plugin_name }}|" \
+              -e "s|^- \*\*Version\*\*:$|- **Version**: ${{ steps.get_basic_info.outputs.version }}|" \
+              -e "s|^- \*\*Source repository\*\*:$|- **Source repository**: ${{ steps.get_basic_info.outputs.repo }}|" \
+              -e "s|^- \*\*Contact\*\*:$|- **Contact**: ${{ steps.get_basic_info.outputs.repo }}/issues|" \
+              -e "s|^- \[ \] Version update$|- [x] Version update|" \
+              .github/pull_request_template.md > "$PR_BODY"
 
           # Push to remote (use force just in case the branch existed before from a failed run)
           git push -u origin "$BRANCH_NAME" --force
@@ -131,10 +146,7 @@ jobs:
             --head "${{ steps.get_basic_info.outputs.author }}:bump-${{ steps.get_basic_info.outputs.plugin_name }}-plugin-${{ steps.get_basic_info.outputs.version }}" \
             --base main \
             --title "bump ${{ steps.get_basic_info.outputs.plugin_name }} plugin to version ${{ steps.get_basic_info.outputs.version }}" \
-            --body "bump ${{ steps.get_basic_info.outputs.plugin_name }} plugin package to version ${{ steps.get_basic_info.outputs.version }}
-
-            Changes:
-            - Updated plugin package file" || echo "PR already exists or creation skipped." # Handle cases where PR already exists
+            --body-file "$RUNNER_TEMP/pr_body.md" || echo "PR already exists or creation skipped." # Handle cases where PR already exists
 
       - name: Print environment info # Kept for debugging
         run: |
