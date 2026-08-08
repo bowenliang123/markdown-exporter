@@ -1,4 +1,4 @@
-# .github/workflows/auto-pr.yml
+# .github/workflows/plugin-publish.yml
 name: Auto Create PR on Main Push
 
 on:
@@ -100,14 +100,13 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-          # Ensure we are on the latest main branch
-          git fetch origin main
-          git checkout main
-          git pull origin main
+          # Base the branch on the latest upstream main, not the fork's main,
+          # which may be stale or share no history with upstream
+          git fetch https://github.com/langgenius/dify-plugins.git main
 
           # Create and switch to a new branch using variables and new naming convention
           BRANCH_NAME="bump-${{ steps.get_basic_info.outputs.plugin_name }}-plugin-${{ steps.get_basic_info.outputs.version }}"
-          git checkout -b "$BRANCH_NAME"
+          git checkout -b "$BRANCH_NAME" FETCH_HEAD
 
           # Add and commit changes (using git add .)
           git add .

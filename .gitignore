@@ -184,7 +184,8 @@ clawhub-skill/
 .claude
 
 # GitHub
-.github
+.github/*
+!.github/workflows/
 
 # Python linting
 .ruff_cache
