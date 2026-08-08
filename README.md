@@ -589,6 +589,10 @@ Releases are available at:
 - [Dify Marketplace Releases](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
 
 ### Changelog
+- 3.7.0
+  - Introduce `md_to_jira` tool for converting Markdown to Jira wiki markup
+  - Upgrade Dify Plugin SDK (`dify_plugin`) to 0.10.1 and bump required Python version to 3.12+
+
 - 3.6.9
   - Reduced the packaged Dify plugin file size by 95% by removing the screenshot images for README docs.
 
