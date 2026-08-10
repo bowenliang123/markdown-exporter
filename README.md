@@ -589,6 +589,9 @@ Releases are available at:
 - [Dify Marketplace Releases](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
 
 ### Changelog
+- 3.8.0
+  - Embed Noto Sans SC font in `md_to_pdf` tool to fix display issues of Simplified Chinese, Traditional Chinese, and Japanese text in generated PDFs (#172)
+
 - 3.7.0
   - Introduce `md_to_jira` tool for converting Markdown to Jira wiki markup
   - Upgrade Dify Plugin SDK (`dify_plugin`) to 0.10.x and bump required Python version to 3.12+
@@ -795,3 +798,4 @@ This project stands on the shoulders of giants. We're grateful to these amazing 
 | [pypandoc](https://github.com/JessicaTegner/pypandoc) | MIT License          |
 | [pandas](https://github.com/pandas-dev/pandas)        | BSD 3-Clause License |
 | [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)   | Apache License 2.0   |
+| [Noto CJK](https://github.com/notofonts/noto-cjk)     | SIL Open Font License 1.1 |
