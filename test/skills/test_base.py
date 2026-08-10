@@ -23,22 +23,20 @@ class TestBase(unittest.TestCase):
         self.register_output(output_file)
 
         # Convert script path to module path (remove .py and replace / with .)
-        module_name = script_name.replace('.py', '').replace('/', '.')
-        
+        module_name = script_name.replace(".py", "").replace("/", ".")
+
         # Build command with optional additional arguments
         cmd = ["uv", "run", "python", "-m", f"md_exporter.{module_name}", input_file, output_file]
         if args:
             cmd.extend(args)
 
-        subprocess.run(
-            cmd, check=True, env=self.env
-        )
+        subprocess.run(cmd, check=True, env=self.env)
 
     def run_script_with_output(self, script_name, input_file):
         """Run the specified script with given input and capture stdout output."""
         # Convert script path to module path (remove .py and replace / with .)
-        module_name = script_name.replace('.py', '').replace('/', '.')
-        
+        module_name = script_name.replace(".py", "").replace("/", ".")
+
         return subprocess.run(
             ["uv", "run", "python", "-m", f"md_exporter.{module_name}", input_file],
             check=True,
