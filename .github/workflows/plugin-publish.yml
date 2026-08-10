@@ -118,6 +118,15 @@ jobs:
           # Commit message
           git commit -m "bump ${{ steps.get_basic_info.outputs.plugin_name }} plugin to version ${{ steps.get_basic_info.outputs.version }}"
 
+          # Extract this version's changelog bullets from README for the PR body
+          # (rewrite issue refs like (#172) to point at the source repo, not dify-plugins)
+          REPO_SLUG="${REPO#https://github.com/}"
+          WHAT_CHANGED=$(awk "/^- ${{ steps.get_basic_info.outputs.version }}$/{f=1;next} /^- [0-9]+\.[0-9]+\.[0-9]+$/{f=0} f" README.md | sed -e 's/^[[:space:]]*//' -e "s|(#|(${REPO_SLUG}#|g")
+          if [ -z "$WHAT_CHANGED" ]; then
+            WHAT_CHANGED="- Bump ${{ steps.get_basic_info.outputs.plugin_name }} to ${{ steps.get_basic_info.outputs.version }}."
+          fi
+          echo "$WHAT_CHANGED" > "$RUNNER_TEMP/what_changed.txt"
+
           # Generate PR body from the official plugin submission template,
           # filling in the fields known from the manifest
           PR_BODY="$RUNNER_TEMP/pr_body.md"
@@ -128,7 +137,7 @@ jobs:
               -e "s|^- \*\*Contact\*\*:$|- **Contact**: ${{ steps.get_basic_info.outputs.repo }}/issues|" \
               -e "s|^- \[ \] Version update$|- [x] Version update|" \
               -e "s|^- \[ \] Low risk$|- [x] Low risk|" \
-              -e "/^## What changed\$/a Bump ${{ steps.get_basic_info.outputs.plugin_name }} to ${{ steps.get_basic_info.outputs.version }}. See the changelog in the source repository for details." \
+              -e "/^## What changed\$/r $RUNNER_TEMP/what_changed.txt" \
               -e "/^## Local validation\$/a Ran the automated test suite (uv run pytest, all tests passed) and packaged the plugin with the official dify-plugin CLI." \
               -e "/^## Security and privacy notes\$/a The plugin converts user-provided Markdown into local files: it reads input files and writes output files in the working directory, and the CLI dispatches to per-tool modules via dynamic import. No network access, credentials, or sensitive data handling." \
               .github/pull_request_template.md > "$PR_BODY"
