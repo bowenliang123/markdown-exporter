@@ -9,6 +9,11 @@ from pathlib import Path
 from ..utils.markdown_utils import convert_markdown_to_html, get_md_text
 from ..utils.text_utils import contains_chinese, contains_japanese
 
+# Directory containing bundled Noto Sans SC fonts (SIL OFL 1.1, see LICENSE there)
+FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
+
+FONT_REGULAR = "NotoSansSC-Regular.ttf"
+
 
 def convert_to_html_with_font_support(md_text: str) -> str:
     """
@@ -25,20 +30,18 @@ def convert_to_html_with_font_support(md_text: str) -> str:
     if not contains_chinese(md_text) and not contains_japanese(md_text):
         return html_str
 
-    # Add Chinese/Japanese font CSS
-    font_families = ",".join(
-        [
-            "Sans-serif",
-            "STSong-Light",
-            "MSung-Light",
-            "HeiseiMin-W3",
-        ]
-    )
+    # Embed bundled Noto Sans SC so generated PDFs carry real glyph data
+    # (Adobe's standard CID font names like STSong-Light are references only
+    # and require viewers to install an Asian language font pack)
     css_style = f"""
     <style>
+        @font-face {{
+            font-family: NotoSansSC;
+            src: url({FONT_REGULAR});
+        }}
         html {{
             -pdf-word-wrap: CJK;
-            font-family: "{font_families}"; 
+            font-family: NotoSansSC;
         }}
     </style>
     """
@@ -48,6 +51,20 @@ def convert_to_html_with_font_support(md_text: str) -> str:
     {html_str}
     """
     return result
+
+
+def _font_link_callback(uri: str, rel: str) -> str:
+    """
+    Resolve @font-face relative URLs to bundled font file paths.
+
+    xhtml2pdf cannot handle file:// absolute URLs in @font-face, so font
+    files are referenced by bare file name and resolved here. Other
+    resources are left untouched.
+    """
+    font_path = FONTS_DIR / Path(uri).name
+    if font_path.name == FONT_REGULAR and font_path.exists():
+        return str(font_path)
+    return uri
 
 
 def convert_md_to_pdf(md_text: str, output_path: Path, is_strip_wrapper: bool = False) -> None:
@@ -77,6 +94,7 @@ def convert_md_to_pdf(md_text: str, output_path: Path, is_strip_wrapper: bool = 
         dest_bytes=True,
         encoding="utf-8",
         capacity=400 * 1024 * 1024,
+        link_callback=_font_link_callback,
     )
 
     # Write to file
