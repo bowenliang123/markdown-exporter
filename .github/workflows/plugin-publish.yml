@@ -127,6 +127,10 @@ jobs:
               -e "s|^- \*\*Source repository\*\*:$|- **Source repository**: ${{ steps.get_basic_info.outputs.repo }}|" \
               -e "s|^- \*\*Contact\*\*:$|- **Contact**: ${{ steps.get_basic_info.outputs.repo }}/issues|" \
               -e "s|^- \[ \] Version update$|- [x] Version update|" \
+              -e "s|^- \[ \] Low risk$|- [x] Low risk|" \
+              -e "/^## What changed\$/a Bump ${{ steps.get_basic_info.outputs.plugin_name }} to ${{ steps.get_basic_info.outputs.version }}. See the changelog in the source repository for details." \
+              -e "/^## Local validation\$/a Ran the automated test suite (uv run pytest, all tests passed) and packaged the plugin with the official dify-plugin CLI." \
+              -e "/^## Security and privacy notes\$/a The plugin converts user-provided Markdown into local files: it reads input files and writes output files in the working directory, and the CLI dispatches to per-tool modules via dynamic import. No network access, credentials, or sensitive data handling." \
               .github/pull_request_template.md > "$PR_BODY"
 
           # Push to remote (use force just in case the branch existed before from a failed run)

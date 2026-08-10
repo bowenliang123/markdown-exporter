@@ -1,5 +1,5 @@
 # dify plugin python sdk
-dify_plugin~=0.10.1
+dify_plugin>=0.10.1,<0.11.0
 
 # markdown
 markdown~=3.10.3
