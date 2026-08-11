@@ -797,5 +797,5 @@ This project stands on the shoulders of giants. We're grateful to these amazing 
 |-------------------------------------------------------|----------------------|
 | [pypandoc](https://github.com/JessicaTegner/pypandoc) | MIT License          |
 | [pandas](https://github.com/pandas-dev/pandas)        | BSD 3-Clause License |
-| [xhtml2pdf](https://github.com/xhtml2pdf/xhtml2pdf)   | Apache License 2.0   |
+| [typst](https://github.com/typst/typst)               | Apache License 2.0   |
 | [Noto CJK](https://github.com/notofonts/noto-cjk)     | SIL Open Font License 1.1 |
