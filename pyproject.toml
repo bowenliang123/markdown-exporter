@@ -31,7 +31,7 @@ dify = [
 Homepage = "https://github.com/bowenliang123/markdown-exporter/"
 Repository = "https://github.com/bowenliang123/markdown-exporter.git"
 Issues = "https://github.com/bowenliang123/markdown-exporter/issues"
-Changelog = "https://github.com/bowenliang123/markdown-exporter/?tab=readme-ov-file#-changelog"
+Changelog = "https://github.com/bowenliang123/markdown-exporter/?tab=readme-ov-file#changelog"
 
 [build-system]
 requires = ["uv_build>=0.10.4,<0.11.0"]
