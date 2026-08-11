@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Print working directory # Kept for debugging
         run: |
@@ -75,7 +75,7 @@ jobs:
           tree || ls -R
 
       - name: Checkout target repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
         with:
           # Use author variable for repository
           repository: ${{steps.get_basic_info.outputs.author}}/dify-plugins
