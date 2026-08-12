@@ -29,6 +29,24 @@ class TestMdToPdf(TestBase):
         self.assertTrue(has_font_stream, "CJK font is not embedded in the PDF")
         self.assertIn(b"NotoSansCJK", pdf_bytes, "Noto Sans CJK is not used in the PDF")
 
+    def test_md_to_pdf_all_styles_cjk(self):
+        # Exhaustive markdown style coverage across SC/TC/JP/KR, guarding against
+        # regressions like PR #186 (typst 0.13+ removed `horizontalrule`).
+        input_file = "test/resources/example_md_all_styles_cjk.md"
+        output_file = "test_output/test_all_styles_cjk.pdf"
+
+        self.run_script("parser/cli_md_to_pdf.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        with open(output_file, "rb") as f:
+            pdf_bytes = f.read()
+        has_font_stream = b"FontFile2" in pdf_bytes or b"FontFile3" in pdf_bytes
+        self.assertTrue(has_font_stream, "CJK font is not embedded in the PDF")
+        self.assertIn(b"NotoSansCJKsc-Regular", pdf_bytes, "SC font is not used")
+        self.assertIn(b"NotoSansCJKtc-Regular", pdf_bytes, "TC font is not used")
+        self.assertIn(b"NotoSansCJKjp-Regular", pdf_bytes, "JP font is not used")
+        self.assertIn(b"NotoSansCJKkr-Regular", pdf_bytes, "KR font is not used")
+
     def test_md_to_pdf_cjk_paragraph_level_fonts(self):
         # Mixed CJK document should use region-specific fonts per paragraph
         input_file = "test_output/mixed_cjk_input.md"
