@@ -613,6 +613,14 @@ Releases are available at:
 - [Dify Marketplace Releases](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)
 
 ### Changelog
+- 4.0.0
+  - [BREAKING CHANGE] Completely rewrite the `md_to_pdf` tool on Pandoc and Typst (a Rust-based markup language output generator), replacing xhtml2pdf for performace and more stable page output (#174)
+  - Bundle the full Noto Sans CJK font set in `md_to_pdf`, fixing blank/garbled output for Simplified Chinese, Traditional Chinese, Japanese, and Korean text, with paragraph-level regional font adaptation (#175)
+  - Introduce `md_to_svg` and `md_to_png` tools for converting Markdown to images (#179)
+  - Fix image display issues in README by unifying screenshot sizes and removing unreferenced assets (#180 #187)
+  - Fix PDF/PNG/SVG conversion failure on thematic breaks (`---`) by replacing `#horizontalrule` removed in Typst 0.13+ (#186)
+  - Fix `<br>` line breaks being lost in table cells in `md_to_xlsx` tool (#183)
+
 - 3.8.0
   - Embed Noto Sans SC font in `md_to_pdf` tool to fix display issues of Simplified Chinese, Traditional Chinese, and Japanese text in generated PDFs (#172)
 
