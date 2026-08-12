@@ -12,7 +12,7 @@ from typing import Literal
 from urllib.parse import urlparse
 
 from ..utils.markdown_utils import get_md_text
-from ..utils.text_utils import contains_chinese, contains_japanese, contains_korean, detect_cjk_language
+from ..utils.text_utils import contains_chinese, contains_japanese_kana, contains_korean, detect_cjk_language
 
 # Directory containing bundled Noto Sans CJK fonts (SIL OFL 1.1, see LICENSE there)
 FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
@@ -171,7 +171,7 @@ def convert_md_to_pdf(md_text: str, output_path: Path, is_strip_wrapper: bool = 
 
     processed_md = get_md_text(md_text, is_strip_wrapper=is_strip_wrapper)
     include_cjk_font = (
-        contains_chinese(processed_md) or contains_japanese(processed_md) or contains_korean(processed_md)
+        contains_chinese(processed_md) or contains_japanese_kana(processed_md) or contains_korean(processed_md)
     )
 
     # Match Microsoft Word 2013+ page defaults: A4 paper, 2.54cm top/bottom

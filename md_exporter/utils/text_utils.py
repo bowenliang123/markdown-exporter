@@ -10,9 +10,6 @@ CHINESE_CHAR_PATTERN = re.compile(r"[\u4e00-\u9fff]")
 # Regex pattern for matching Japanese kana (hiragana + katakana)
 JAPANESE_KANA_PATTERN = re.compile(r"[\u3040-\u309F\u30A0-\u30FF]")
 
-# Regex pattern for matching Japanese characters (legacy, includes kanji)
-JAPANESE_CHAR_PATTERN = re.compile(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]")
-
 # Regex pattern for matching Hangul syllables
 HANGUL_PATTERN = re.compile(r"[\uAC00-\uD7AF]")
 
@@ -29,11 +26,6 @@ _SIMPLIFIED_SPECIFIC_CHARS = frozenset(
 def contains_chinese(text: str) -> bool:
     """Check if contains Chinese characters"""
     return bool(CHINESE_CHAR_PATTERN.search(text))
-
-
-def contains_japanese(text: str) -> bool:
-    """Check if contains Japanese characters"""
-    return bool(JAPANESE_CHAR_PATTERN.search(text))
 
 
 def contains_japanese_kana(text: str) -> bool:
@@ -78,6 +70,4 @@ def remove_think_tags(text: str) -> str:
 
 def normalize_line_breaks(text: str) -> str:
     """Normalize line breaks"""
-    if "\\n" in text:
-        text = text.replace("\\n", "\n")
-    return text
+    return text.replace("\\n", "\n")
