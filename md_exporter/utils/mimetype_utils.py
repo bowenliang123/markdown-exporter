@@ -9,6 +9,7 @@ class MimeType(StrEnum):
     HTML = "text/html"
     JS = "text/javascript"
     JAVA = "text/x-java-source"
+    JL = "text/x-julia"
     JSON = "application/json"
     LATEX = "application/x-tex"
     MD = "text/markdown"
@@ -17,6 +18,7 @@ class MimeType(StrEnum):
     PNG = "image/png"
     PPTX = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
     PY = "text/x-python"
+    RS = "text/x-rust"
     RST = "text/prs.fallenstein.rst"
     RUBY = "text/x-ruby"
     TXT = "text/plain"
@@ -42,6 +44,7 @@ class MimeType(StrEnum):
             cls.HTML: ".html",
             cls.JS: ".js",
             cls.JAVA: ".java",
+            cls.JL: ".jl",
             cls.JSON: ".json",
             cls.LATEX: ".tex",
             cls.MD: ".md",
@@ -50,6 +53,7 @@ class MimeType(StrEnum):
             cls.PNG: ".png",
             cls.PPTX: ".pptx",
             cls.PY: ".py",
+            cls.RS: ".rs",
             cls.RST: ".rst",
             cls.RUBY: ".rb",
             cls.TXT: ".txt",

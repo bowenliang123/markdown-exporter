@@ -77,6 +77,10 @@ class MarkdownToCodeblockTool(Tool):
                         mime_type = MimeType.PHP
                     elif suffix == ".java":
                         mime_type = MimeType.JAVA
+                    elif suffix == ".jl":
+                        mime_type = MimeType.JL
+                    elif suffix == ".rs":
+                        mime_type = MimeType.RS
 
                     yield self.create_blob_message(
                         blob=file_path.read_bytes(),

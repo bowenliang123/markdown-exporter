@@ -40,6 +40,8 @@ MIME_TYPE_MAP = {
     "yaml": "text/yaml",
     "php": "application/x-httpd-php",
     "java": "text/x-java-source",
+    "julia": "text/x-julia",
+    "rust": "text/x-rust",
 }
 
 SUFFIX_MAP = {
@@ -58,6 +60,8 @@ SUFFIX_MAP = {
     "ruby": ".rb",
     "php": ".php",
     "java": ".java",
+    "julia": ".jl",
+    "rust": ".rs",
     "js": ".js",
 }
 
