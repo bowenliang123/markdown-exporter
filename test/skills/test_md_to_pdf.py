@@ -47,6 +47,31 @@ class TestMdToPdf(TestBase):
         self.assertIn(b"NotoSansCJKjp-Regular", pdf_bytes, "JP font is not used")
         self.assertIn(b"NotoSansCJKkr-Regular", pdf_bytes, "KR font is not used")
 
+    def test_md_to_pdf_cjk_bold(self):
+        # Bold CJK text must use the embedded Noto Sans CJK Bold weight
+        # (previously only Regular was bundled, so bold silently rendered as Regular)
+        input_file = "test_output/cjk_bold_input.md"
+        output_file = "test_output/test_cjk_bold.pdf"
+
+        content = """# 加粗标题测试
+
+普通文本与**加粗文本**对比。
+
+**整段加粗的中文内容，用于验证 Bold 字重。**
+"""
+        with open(input_file, "w", encoding="utf-8") as f:
+            f.write(content)
+        self.register_output(input_file)
+
+        self.run_script("parser/cli_md_to_pdf.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        with open(output_file, "rb") as f:
+            pdf_bytes = f.read()
+        has_font_stream = b"FontFile2" in pdf_bytes or b"FontFile3" in pdf_bytes
+        self.assertTrue(has_font_stream, "CJK font is not embedded in the PDF")
+        self.assertIn(b"NotoSansCJKsc-Bold", pdf_bytes, "Bold SC font is not used")
+
     def test_md_to_pdf_cjk_paragraph_level_fonts(self):
         # Mixed CJK document should use region-specific fonts per paragraph
         input_file = "test_output/mixed_cjk_input.md"
