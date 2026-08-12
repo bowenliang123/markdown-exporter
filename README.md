@@ -619,6 +619,7 @@ Releases are available at:
   - Introduce `md_to_svg` and `md_to_png` tools for converting Markdown to images (#179)
   - Fix image display issues in README by unifying screenshot sizes and removing unreferenced assets (#180 #187)
   - Fix PDF/PNG/SVG conversion failure on thematic breaks (`---`) by replacing `#horizontalrule` removed in Typst 0.13+ (#186)
+  - Bundle the Twemoji Mozilla emoji font in `md_to_pdf`, `md_to_png` and `md_to_svg` tools, fixing blank emoji output on systems without emoji fonts (#191)
   - Fix `<br>` line breaks being lost in table cells in `md_to_xlsx` tool (#183)
 
 - 3.8.0
