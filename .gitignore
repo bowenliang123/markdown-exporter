@@ -186,6 +186,7 @@ clawhub-skill/
 # GitHub
 .github/*
 !.github/workflows/
+!.github/PULL_REQUEST_TEMPLATE.md
 
 # Python linting
 .ruff_cache
