@@ -10,7 +10,5 @@ pandas[excel,html,xml]~=3.0.5
 # for markdown to pdf (pandoc + typst)
 typst>=0.15.0
 
-pillow~=12.3.0
-
 # pandoc
 pypandoc-binary~=1.17
