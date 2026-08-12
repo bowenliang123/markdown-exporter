@@ -560,7 +560,6 @@ name = "md-exporter"
 version = "3.8.0"
 source = { editable = "." }
 dependencies = [
-    { name = "jinja2" },
     { name = "markdown" },
     { name = "pandas", extra = ["excel", "html", "xml"] },
     { name = "pypandoc-binary" },
@@ -578,7 +577,6 @@ dify = [
 
 [package.metadata]
 requires-dist = [
-    { name = "jinja2", specifier = ">=3.1.6" },
     { name = "markdown", specifier = ">=3.10.3" },
     { name = "pandas", extras = ["excel", "html", "xml"], specifier = "~=3.0.5" },
     { name = "pypandoc-binary", specifier = "~=1.17" },
