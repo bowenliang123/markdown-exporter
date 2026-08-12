@@ -1,6 +1,6 @@
 ---
 name: markdown-exporter
-description: Convert Markdown text to DOCX, PPTX, XLSX, PDF, HTML, IPYNB, MD, CSV, JSON, JSONL, XML files, and extract code blocks in Markdown to Python, Bash,JS and etc files.
+description: Convert Markdown text to DOCX, PPTX, XLSX, PDF, PNG, SVG, HTML, IPYNB, MD, CSV, JSON, JSONL, XML files, and extract code blocks in Markdown to Python, Bash,JS and etc files.
 license: Apache-2.0
 metadata:
    author: bowenliang123
@@ -31,6 +31,8 @@ This [SKILL.md](https://github.com/bowenliang123/markdown-exporter/blob/main/SKI
 | `md_to_html_text` | 📝 Markdown text | 🌐 HTML text string |
 | `md_to_jira` | 📝 Markdown text | 🅹 Jira wiki markup text |
 | `md_to_pdf` | 📝 Markdown text | 📑 PDF file (.pdf) |
+| `md_to_png` | 📝 Markdown text | 🖼️ PNG image (.png), single long page or one image per page |
+| `md_to_svg` | 📝 Markdown text | 🖼️ SVG image (.svg), one image per page |
 | `md_to_md` | 📝 Markdown text | 📝 Markdown file (.md) |
 | `md_to_ipynb` | 📝 Markdown text | 📓 Jupyter Notebook (.ipynb) |
 | `md_to_pptx` | 📝 Markdown slides in [Pandoc style](https://pandoc.org/MANUAL.html#slide-shows) | 🎯 PowerPoint (.pptx) |
@@ -144,6 +146,83 @@ markdown-exporter md_to_pdf <input> <output> [options]
 2. **With code block wrapper removal**:
    ```bash
    markdown-exporter md_to_pdf /path/input.md /path/output.pdf --strip-wrapper
+   ```
+   This removes any code block wrappers (```) before processing the Markdown.
+
+**Sample Markdown Input:**
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs - Basic Text and Tables](#basic-text-and-tables) section below.
+
+---
+
+### md_to_png - Convert Markdown to PNG
+
+Converts Markdown text to PNG image(s), with support for Chinese, Japanese, and other languages.
+
+**Usage:**
+```bash
+markdown-exporter md_to_png <input> <output> [options]
+```
+
+**Arguments:**
+- `input` - Input Markdown file path
+- `output` - Output PNG file path
+
+**Options:**
+- `--multi-page` - Export one PNG per A4 page (numbered files) instead of a single long-page PNG
+- `--strip-wrapper` - Remove code block wrapper if present
+
+**Examples:**
+
+1. **Basic conversion (single long-page image)**:
+   ```bash
+   markdown-exporter md_to_png /path/input.md /path/output.png
+   ```
+   This renders the entire Markdown document as a single long-page PNG image.
+
+2. **Multi-page output**:
+   ```bash
+   markdown-exporter md_to_png /path/input.md /path/output.png --multi-page
+   ```
+   This exports one PNG per A4 page, saved as `output_1.png`, `output_2.png`, etc. when the document has multiple pages.
+
+3. **With code block wrapper removal**:
+   ```bash
+   markdown-exporter md_to_png /path/input.md /path/output.png --strip-wrapper
+   ```
+   This removes any code block wrappers (```) before processing the Markdown.
+
+**Sample Markdown Input:**
+Use the "Basic Text and Tables" example from the [Sample Markdown Inputs - Basic Text and Tables](#basic-text-and-tables) section below.
+
+---
+
+### md_to_svg - Convert Markdown to SVG
+
+Converts Markdown text to SVG image(s), one SVG per page, with support for Chinese, Japanese, and other languages.
+
+**Usage:**
+```bash
+markdown-exporter md_to_svg <input> <output> [options]
+```
+
+**Arguments:**
+- `input` - Input Markdown file path
+- `output` - Output SVG file path
+
+**Options:**
+- `--strip-wrapper` - Remove code block wrapper if present
+
+**Examples:**
+
+1. **Basic conversion**:
+   ```bash
+   markdown-exporter md_to_svg /path/input.md /path/output.svg
+   ```
+   This converts the Markdown file to SVG image(s), saved as `output_1.svg`, `output_2.svg`, etc. when the document has multiple pages.
+
+2. **With code block wrapper removal**:
+   ```bash
+   markdown-exporter md_to_svg /path/input.md /path/output.svg --strip-wrapper
    ```
    This removes any code block wrappers (```) before processing the Markdown.
 

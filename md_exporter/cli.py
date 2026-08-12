@@ -15,7 +15,9 @@ SUBCOMMANDS = {
     "md_to_latex": "md_exporter.parser.cli_md_to_latex",
     "md_to_md": "md_exporter.parser.cli_md_to_md",
     "md_to_pdf": "md_exporter.parser.cli_md_to_pdf",
+    "md_to_png": "md_exporter.parser.cli_md_to_png",
     "md_to_pptx": "md_exporter.parser.cli_md_to_pptx",
+    "md_to_svg": "md_exporter.parser.cli_md_to_svg",
     "md_to_xlsx": "md_exporter.parser.cli_md_to_xlsx",
     "md_to_xml": "md_exporter.parser.cli_md_to_xml",
 }

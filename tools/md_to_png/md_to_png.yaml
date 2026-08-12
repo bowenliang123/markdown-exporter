@@ -1,0 +1,56 @@
+identity:
+  name: md_to_png
+  author: bowenliang123
+  label:
+    en_US: Markdown ⮕ PNG
+    zh_Hans: Markdown ⮕ PNG
+description:
+  human:
+    en_US: Generate PNG image(s) from Markdown text
+    zh_Hans: 将 Markdown 转换为 PNG 图片的工具
+  llm: Generate PNG image(s) from Markdown text
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Output Filename
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Optional custom output file name, and the filename suffix is not required.
+      zh_Hans: 可选的自定义输出文件名，后缀名无需指定
+    form: llm
+  - name: page_mode
+    type: select
+    required: false
+    default: "single"
+    options:
+      - value: "single"
+        label:
+          en_US: "Single page (one long image)"
+          zh_Hans: 单页（一张长图）
+      - value: "multi"
+        label:
+          en_US: "Multiple pages (one image per A4 page)"
+          zh_Hans: 多页（每个A4页面一张图片）
+    label:
+      en_US: Page Mode
+      zh_Hans: 分页模式
+    human_description:
+      en_US: "single: the whole document in one long image; multi: one image per A4 page."
+      zh_Hans: "单页：整个文档导出为一张长图；多页：每个A4页面导出一张图片。"
+    llm_description: "single: the whole document in one long image; multi: one image per A4 page. Default to single."
+    form: form
+extra:
+  python:
+    source: tools/md_to_png/md_to_png.py

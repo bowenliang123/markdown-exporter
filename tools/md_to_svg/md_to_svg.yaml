@@ -1,0 +1,35 @@
+identity:
+  name: md_to_svg
+  author: bowenliang123
+  label:
+    en_US: Markdown ⮕ SVG
+    zh_Hans: Markdown ⮕ SVG
+description:
+  human:
+    en_US: Generate SVG image(s) from Markdown text, one SVG per page
+    zh_Hans: 将 Markdown 转换为 SVG 图片的工具，每个页面一张图片
+  llm: Generate SVG image(s) from Markdown text, one SVG per page
+parameters:
+  - name: md_text
+    type: string
+    required: true
+    label:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    human_description:
+      en_US: Markdown text
+      zh_Hans: Markdown格式文本
+    form: llm
+  - name: output_filename
+    type: string
+    required: false
+    label:
+      en_US: Output Filename
+      zh_Hans: 输出文件名
+    human_description:
+      en_US: Optional custom output file name, and the filename suffix is not required.
+      zh_Hans: 可选的自定义输出文件名，后缀名无需指定
+    form: llm
+extra:
+  python:
+    source: tools/md_to_svg/md_to_svg.py
