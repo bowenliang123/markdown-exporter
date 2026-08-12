@@ -9,6 +9,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import pandas as pd
+from openpyxl.styles import Alignment
 
 from ..utils.markdown_utils import get_md_text
 from ..utils.table_utils import SUGGESTED_SHEET_NAME, parse_md_to_tables
@@ -45,6 +46,14 @@ def convert_md_to_xlsx(
             for i, table in enumerate(tables):
                 sheet_name = table.attrs.get(SUGGESTED_SHEET_NAME, f"Sheet{i + 1}")
                 table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep="")
+
+                worksheet = writer.sheets[sheet_name]
+                # Enable text wrapping for cells that contain line breaks
+                for row in worksheet.iter_rows():
+                    for cell in row:
+                        if cell.value and isinstance(cell.value, str) and "\n" in cell.value:
+                            cell.alignment = Alignment(wrap_text=True)
+
                 # Auto-fit column width if supported
                 if hasattr(writer.sheets[sheet_name], "autofit"):
                     writer.sheets[sheet_name].autofit(max_width=200)

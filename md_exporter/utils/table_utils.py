@@ -1,13 +1,17 @@
+import re
 from io import StringIO
 from logging import Logger
 
 import markdown
 import pandas as pd
 from bs4 import BeautifulSoup
+from pandas.api.types import is_string_dtype
 
 from .markdown_utils import strip_markdown_wrapper
 
 SUGGESTED_SHEET_NAME = "suggested_sheet_name"
+LINE_BREAK_PLACEHOLDER = "__MDEXPORTER_LINE_BREAK__"
+BR_TAG_PATTERN = re.compile(r"<br\s*/?>", re.IGNORECASE)
 
 
 def extract_headings(html_str: str, extract_headings_for_sheet_names: bool) -> list[str]:
@@ -26,6 +30,19 @@ def extract_headings(html_str: str, extract_headings_for_sheet_names: bool) -> l
     return headings
 
 
+def _replace_br_tags_with_placeholder(html_str: str) -> str:
+    """Replace <br> tags with a placeholder so pandas.read_html preserves line breaks."""
+    return BR_TAG_PATTERN.sub(LINE_BREAK_PLACEHOLDER, html_str)
+
+
+def _restore_line_breaks(table: pd.DataFrame) -> pd.DataFrame:
+    """Restore line break placeholders to actual newline characters in string columns."""
+    for col in table.columns:
+        if is_string_dtype(table[col]):
+            table[col] = table[col].astype(str).str.replace(LINE_BREAK_PLACEHOLDER, "\n", regex=False)
+    return table
+
+
 def parse_md_to_tables(
     md_text: str,
     force_value_to_str: bool = True,
@@ -39,6 +56,7 @@ def parse_md_to_tables(
             md_text = md_text.replace("|", "\n|", 1)
 
         html_str = markdown.markdown(text=md_text, extensions=["tables"])
+        html_str = _replace_br_tags_with_placeholder(html_str)
         tables: list[pd.DataFrame] = pd.read_html(StringIO(html_str), encoding="utf-8")
         headings: list[str] = extract_headings(html_str, extract_headings_for_sheet_names)
 
@@ -48,6 +66,7 @@ def parse_md_to_tables(
                 for col in table.columns:
                     if table[col].dtype not in {"object", "string"}:
                         table[col] = table[col].astype(str)
+            table = _restore_line_breaks(table)
             return table
 
         result_tables = []
