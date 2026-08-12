@@ -495,7 +495,7 @@ markdown-exporter <subcommand> <args> [options]
 markdown-exporter md_to_docx <input> <output> [options]
 ```
 - **Arguments**: `input` (Markdown file path), `output` (DOCX file path)
-- **Options**: `--template` (Path to DOCX template file), `--strip-wrapper` (Remove code block wrapper if present)
+- **Options**: `--template` (Path to DOCX reference-template file; styles, margins, headers, and footers are inherited from a pandoc-based template), `--strip-wrapper` (Remove code block wrapper if present), `--toc` (Include table of contents)
 
 #### md_to_html - Convert Markdown to HTML
 ```bash

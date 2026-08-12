@@ -27,8 +27,8 @@ parameters:
       en_US: DOCX Template File
       zh_Hans: DOCX 模板文件
     human_description:
-      en_US: Optional docx template file for styling。Use "Home"-"Styles Pane" in Microsoft Word to edit styles of the docx file.
-      zh_Hans: 可选的docx模板文件，用于样式控制。使用Microsoft Word中“开始”-“样式窗格”对docx文件的样式进行编辑。
+      en_US: Optional docx template file for styling, headers, footers, and page setup. For best results, use a docx file produced or based on pandoc output. Use "Home"-"Styles Pane" in Microsoft Word to edit styles of the docx file.
+      zh_Hans: 可选的docx模板文件，用于样式、页眉、页脚和页面设置。为获得最佳效果，请使用由pandoc生成或基于pandoc输出的docx文件。使用Microsoft Word中“开始”-“样式窗格”对docx文件的样式进行编辑。
     llm_description: An optional .pptx file that serves as a template for the generated presentation
     form: llm
   - name: output_filename
