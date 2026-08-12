@@ -13,12 +13,12 @@ identity:
 tools:
   - tools/md_to_docx/md_to_docx.yaml
   - tools/md_to_pdf/md_to_pdf.yaml
-  - tools/md_to_png/md_to_png.yaml
-  - tools/md_to_svg/md_to_svg.yaml
   - tools/md_to_xlsx/md_to_xlsx.yaml
   - tools/md_to_pptx/md_to_pptx.yaml
-  - tools/md_to_ipynb/md_to_ipynb.yaml
   - tools/md_to_html/md_to_html.yaml
+  - tools/md_to_png/md_to_png.yaml
+  - tools/md_to_svg/md_to_svg.yaml
+  - tools/md_to_ipynb/md_to_ipynb.yaml
   - tools/md_to_html_text/md_to_html_text.yaml
   - tools/md_to_jira/md_to_jira.yaml
   - tools/md_to_md/md_to_md.yaml
