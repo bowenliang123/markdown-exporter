@@ -210,6 +210,10 @@ def compile_markdown_with_typst(
         work_path = Path(work_dir)
         processed_md = _inline_remote_images(processed_md, work_path)
         typst_body = convert_text(source=processed_md, format="markdown", to="typst")
+        # Typst 0.13+ removed the `horizontalrule` function (renamed to `line`).
+        # Pandoc 3.x still emits `#horizontalrule` for markdown thematic breaks.
+        typst_body = typst_body.replace("#horizontalrule()", "#line(length: 100%)")
+        typst_body = typst_body.replace("#horizontalrule", "#line(length: 100%)")
 
         if include_cjk_font:
             doc_lang = detect_cjk_language(processed_md)
