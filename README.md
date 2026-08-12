@@ -620,7 +620,7 @@ Releases are available at:
   - Fix image display issues in README by unifying screenshot sizes and removing unreferenced assets (#180 #187)
   - Fix PDF/PNG/SVG conversion failure on thematic breaks (`---`) by replacing `#horizontalrule` removed in Typst 0.13+ (#186)
   - Fix emoji rendering failure (tofu boxes) in `md_to_pdf`, `md_to_png` and `md_to_svg` tools on systems without emoji fonts by bundling the Twemoji Mozilla emoji font (#191)
-  - Fix bold text (headings, `**strong**`) rendering without emphasis in `md_to_pdf`, `md_to_png` and `md_to_svg` by bundling the Noto Sans CJK Bold weight (#193)
+  - Fix CJK bold text (headings, `**strong**`) rendering at regular weight in `md_to_pdf`, `md_to_png` and `md_to_svg` by bundling the Noto Sans CJK Bold weight (#193)
   - Fix `<br>` line breaks being lost in table cells in `md_to_xlsx` tool (#183)
 
 - 3.8.0
