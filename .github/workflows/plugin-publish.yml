@@ -119,9 +119,10 @@ jobs:
           git commit -m "bump ${{ steps.get_basic_info.outputs.plugin_name }} plugin to version ${{ steps.get_basic_info.outputs.version }}"
 
           # Extract this version's changelog bullets from README for the PR body
-          # (rewrite issue refs like (#172) to point at the source repo, not dify-plugins)
+          # (README.md lives in $GITHUB_WORKSPACE, not the dify-plugins checkout;
+          # rewrite issue refs like (#172) to point at the source repo, not dify-plugins)
           REPO_SLUG="${REPO#https://github.com/}"
-          WHAT_CHANGED=$(awk "/^- ${{ steps.get_basic_info.outputs.version }}$/{f=1;next} /^- [0-9]+\.[0-9]+\.[0-9]+$/{f=0} f" README.md | sed -e 's/^[[:space:]]*//' -e "s|(#|(${REPO_SLUG}#|g")
+          WHAT_CHANGED=$(awk "/^- ${{ steps.get_basic_info.outputs.version }}$/{f=1;next} /^- [0-9]+\.[0-9]+\.[0-9]+$/{f=0} f" "$GITHUB_WORKSPACE/README.md" | sed -e 's/^[[:space:]]*//' -E -e "s|#([0-9]+)|${REPO_SLUG}#\1|g")
           if [ -z "$WHAT_CHANGED" ]; then
             WHAT_CHANGED="- Bump ${{ steps.get_basic_info.outputs.plugin_name }} to ${{ steps.get_basic_info.outputs.version }}."
           fi
