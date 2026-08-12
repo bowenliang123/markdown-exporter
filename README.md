@@ -3,38 +3,36 @@
 </div>
 <p align="center">
   <a href="https://github.com/bowenliang123/markdown-exporter" target="_blank">
-      <img alt="Github" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-lightgray?logo=github"></a>
+      <img alt="GitHub" src="https://img.shields.io/badge/bowenliang123-markdown--exporter-lightgray?logo=github"></a>
   <a href="https://marketplace.dify.ai/plugin/bowenliang123/md_exporter" target="_blank">
-      <img alt="Github" src="https://img.shields.io/badge/Dify-md__exporter-blue"></a>
+      <img alt="Dify Marketplace" src="https://img.shields.io/badge/Dify-md__exporter-blue"></a>
   <a href="https://clawhub.ai/bowenliang123/markdown-exporter" target="_blank">
-      <img alt="Github" src="https://img.shields.io/badge/🦞OpenClaw-markdown--exporter-red"></a>
+      <img alt="OpenClaw" src="https://img.shields.io/badge/🦞OpenClaw-markdown--exporter-red"></a>
   <a href="https://pypi.org/project/md-exporter/" target="_blank">
-      <img alt="Github" src="https://img.shields.io/badge/PyPI-md--exporter-yellow?logo=python"></a>
+      <img alt="PyPI" src="https://img.shields.io/badge/PyPI-md--exporter-yellow?logo=python"></a>
 </p>
 
 # Markdown Exporter
-### An Agent Skill and Dify plugin to Export Markdown Into Powerful Documents
 
-
+### An Agent Skill and Dify Plugin to Export Markdown into Powerful Documents
 
 - Author: [bowenliang123](https://github.com/bowenliang123)
 - GitHub Repo: [markdown-exporter](https://github.com/bowenliang123/markdown-exporter)
 
-
 **Markdown Exporter** can be used as:
 
-| Use As                       | Platforms & Installation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dify Plugin                  | **Platform**: [Dify](https://github.com/langgenius/dify) <br/> **Installation**: <br/> - Install from [Dify Marketplace](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Agent Skills                 | **Platforms**: Any platform supporting [Agent Skills](https://agentskills.io) <br/> - **IDEs/CLIs**: [Claude Code](https://code.claude.com/docs/en/skills), [Trae](https://docs.trae.ai/ide/skills), [Codebuddy](https://copilot.tencent.com/docs/cli/skills), etc. <br/> - **Agent Frameworks**: [LangChain DeepAgents](https://www.blog.langchain.com/using-skills-with-deep-agents/), [AgentScope](https://doc.agentscope.io/tutorial/task_agent_skill.html), etc. <br/><br/> **Installation**: <br/> - **Local Import**: Download and import [source code zip](https://github.com/bowenliang123/markdown-exporter/archive/refs/heads/main.zip) <br/> - **Remote Install**: `/plugin marketplace add bowenliang123/markdown-exporter` in agent CLIs |
-| OpenClaw Skills 🦞           | **Platform**: [OpenClaw](https://docs.openclaw.ai/tools/skills#clawhub-install-%2B-sync) <br/> - Install from [ClawHub](https://clawhub.ai/bowenliang123/markdown-exporter): `npx clawhub@latest install markdown-exporter`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Command Line Interface (CLI) | **Platform**: Python<br/> - Install from [PyPI](https://pypi.org/project/md-exporter/): `pip install md-exporter`<br/> - Run: `markdown-exporter -h` for usage information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Use As                       | Platforms                                                                                                                                                                                                        | Installation                                                                                                                                                                                               |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dify Plugin                  | [Dify](https://github.com/langgenius/dify)                                                                                                                                                                       | Install from [Dify Marketplace](https://marketplace.dify.ai/plugins/bowenliang123/md_exporter)                                                                                                             |
+| Agent Skills                 | Any platform supporting [Agent Skills](https://agentskills.io):<br/>- **IDEs/CLIs**: [Claude Code](https://code.claude.com/docs/en/skills), [Trae](https://docs.trae.ai/ide/skills), [Codebuddy](https://copilot.tencent.com/docs/cli/skills), etc.<br/>- **Agent Frameworks**: [LangChain DeepAgents](https://www.blog.langchain.com/using-skills-with-deep-agents/), [AgentScope](https://doc.agentscope.io/tutorial/task_agent_skill.html), etc. | - **Local Import**: download and import the [source code zip](https://github.com/bowenliang123/markdown-exporter/archive/refs/heads/main.zip)<br/>- **Remote Install**: run `/plugin marketplace add bowenliang123/markdown-exporter` in agent CLIs |
+| OpenClaw Skills 🦞           | [OpenClaw](https://docs.openclaw.ai/tools/skills#clawhub-install-%2B-sync)                                                                                                                                       | Install from [ClawHub](https://clawhub.ai/bowenliang123/markdown-exporter): `npx clawhub@latest install markdown-exporter`                                                                                 |
+| Command Line Interface (CLI) | Python                                                                                                                                                                                                           | - Install from [PyPI](https://pypi.org/project/md-exporter/): `pip install md-exporter`<br/>- Run `markdown-exporter -h` for usage information                                                             |
 
 ---
 
 ## ✨ What is Markdown Exporter?
 
-**Markdown Exporter** is a powerful toolset as an Agent Skill or a Dify plugin that transforms your Markdown text into a wide variety of professional formats. Whether you need to create polished reports, stunning presentations, organized spreadsheets, or code files—this tool has you covered.
+**Markdown Exporter** is a powerful toolset, available as an Agent Skill or a Dify plugin, that transforms your Markdown text into a wide variety of professional formats. Whether you need to create polished reports, stunning presentations, organized spreadsheets, or code files — this tool has you covered.
 
 With support for **15+ output formats**, Markdown Exporter bridges the gap between simple text editing and professional document creation, all while maintaining the simplicity and elegance of Markdown syntax.
 
@@ -48,9 +46,7 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
 
 ---
 
-## 🛠️ Introduction and Use Guide
-
-### Tools and Supported Formats
+## 🛠️ Tools and Supported Formats
 
 <table>
   <tr>
@@ -97,19 +93,12 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
   </tr>
   <tr>
     <td><code>md_to_pptx</code></td>
-    <td>
-      <div>
-        📝 Markdown slides
-      </div>
-      <div>
-      in <a href="https://pandoc.org/MANUAL.html#slide-shows">Pandoc style </a>
-      </div>
-    </td>
+    <td>📝 Markdown slides in <a href="https://pandoc.org/MANUAL.html#slide-shows">Pandoc style</a></td>
     <td>🎯 PowerPoint (.pptx)</td>
   </tr>
   <tr>
     <td><code>md_to_xlsx</code></td>
-    <td rowspan="5">📋<a href="https://www.markdownguide.org/extended-syntax/#tables"> Markdown tables </a> </td>
+    <td rowspan="5">📋 <a href="https://www.markdownguide.org/extended-syntax/#tables">Markdown tables</a></td>
     <td>📊 Excel spreadsheet (.xlsx)</td>
   </tr>
   <tr>
@@ -130,7 +119,7 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
   </tr>
   <tr>
     <td><code>md_to_codeblock</code></td>
-    <td>💻 <a href="https://www.markdownguide.org/extended-syntax/#fenced-code-blocks"> Code blocks in Markdown </a> </td>
+    <td>💻 <a href="https://www.markdownguide.org/extended-syntax/#fenced-code-blocks">Code blocks in Markdown</a></td>
     <td>📁 Code files by language (.py, .js, .sh, etc.)</td>
   </tr>
 </table>
@@ -145,7 +134,7 @@ Simply input your Markdown text, select your desired output format, and click ex
 
 ---
 
-## 🎨 Dify Tools Usages
+## 🎨 Tool Usage Examples
 
 ### 📄 Markdown → DOCX
 
@@ -193,20 +182,18 @@ Turn your Markdown into stunning PowerPoint presentations automatically.
 
 > **✨ Syntax Requirements**
 >
-
+> The input Markdown must follow the syntax and guidance in [Pandoc Slide Shows](https://pandoc.org/MANUAL.html#slide-shows).
 >
 > **Supported Features:**
 > - ✅ Title slides
-> - ✅ Column Layout
+> - ✅ Column layouts
 > - ✅ Tables
 > - ✅ Hyperlinks
 > - ✅ And more!
 >
-> > **🎨 Custom Templates:**
-> >
-> > Use custom PPTX templates with slide masters to match your brand's visual identity. [Learn how](https://support.microsoft.com/en-us/office/customize-a-slide-master-036d317b-3251-4237-8ddc-22f4668e2b56). Get the [default pptx template](https://github.com/bowenliang123/markdown-exporter/blob/main/md_exporter/assets/template/pptx_template.pptx).
-
-The input Markdown must follow the syntax and guidance in [Pandoc Slide Shows](https://pandoc.org/MANUAL.html#slide-shows).
+> **🎨 Custom Templates:**
+>
+> Use custom PPTX templates with slide masters to match your brand's visual identity. [Learn how](https://support.microsoft.com/en-us/office/customize-a-slide-master-036d317b-3251-4237-8ddc-22f4668e2b56). Get the [default pptx template](https://github.com/bowenliang123/markdown-exporter/blob/main/md_exporter/assets/template/pptx_template.pptx).
 
 **Input Example:**
 
@@ -356,7 +343,7 @@ Render your Markdown as scalable vector SVG image(s), one SVG per page.
 
 ---
 
-### 🏷️ Markdown → Jupyter Notebook
+### 📓 Markdown → Jupyter Notebook
 
 Transform your Markdown into Jupyter Notebook `.ipynb` format.
 
@@ -424,8 +411,7 @@ Effortlessly extract code blocks from your Markdown and save them as individual 
 ![Code Block Example 2](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_3.png)
 ![Code Block Example 3](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_4.png)
 
-
-
+---
 
 ### 📋 Markdown → CSV
 
@@ -477,10 +463,9 @@ Generate LaTeX source code for academic and technical documents.
 
 Save your Markdown content as a `.md` file for future use.
 
-
 ---
 
-## Command Line Interface (CLI) Usage
+## 💻 Command Line Interface (CLI) Usage
 
 Markdown Exporter provides a powerful command-line interface that allows you to access all its functionality directly from your terminal.
 
@@ -490,7 +475,7 @@ Markdown Exporter provides a powerful command-line interface that allows you to 
 # with pip
 pip install md-exporter
 
-# with uv 
+# with uv
 uv tool install md-exporter
 ```
 
@@ -504,12 +489,31 @@ markdown-exporter <subcommand> <args> [options]
 
 ### Tool Usage Guide
 
-#### md_to_csv - Convert Markdown tables to CSV
+#### md_to_docx - Convert Markdown to DOCX
 ```bash
-markdown-exporter md_to_csv <input> <output> [options]
+markdown-exporter md_to_docx <input> <output> [options]
 ```
-- **Arguments**: `input` (Markdown file path), `output` (CSV file path)
+- **Arguments**: `input` (Markdown file path), `output` (DOCX file path)
+- **Options**: `--template` (Path to DOCX template file), `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_html - Convert Markdown to HTML
+```bash
+markdown-exporter md_to_html <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (HTML file path)
 - **Options**: `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_html_text - Convert Markdown to HTML Text
+```bash
+markdown-exporter md_to_html_text <input>
+```
+- **Arguments**: `input` (Markdown file path)
+
+#### md_to_jira - Convert Markdown to Jira Wiki Markup
+```bash
+markdown-exporter md_to_jira <input>
+```
+- **Arguments**: `input` (Markdown file path)
 
 #### md_to_pdf - Convert Markdown to PDF
 ```bash
@@ -532,74 +536,6 @@ markdown-exporter md_to_svg <input> <output> [options]
 - **Arguments**: `input` (Markdown file path), `output` (SVG file path). One SVG per page; numbered files are generated when the document has multiple pages
 - **Options**: `--strip-wrapper` (Remove code block wrapper if present)
 
-#### md_to_docx - Convert Markdown to DOCX
-```bash
-markdown-exporter md_to_docx <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (DOCX file path)
-- **Options**: `--template` (Path to DOCX template file), `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_xlsx - Convert Markdown tables to XLSX
-```bash
-markdown-exporter md_to_xlsx <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (XLSX file path)
-- **Options**: `--force-text` (Convert cell values to text type), `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_pptx - Convert Markdown to PPTX
-```bash
-markdown-exporter md_to_pptx <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (PPTX file path)
-- **Options**: `--template` (Path to PPTX template file)
-
-#### md_to_codeblock - Extract Codeblocks to Files
-```bash
-markdown-exporter md_to_codeblock <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (Output directory or ZIP file path)
-- **Options**: `--compress` (Compress all code blocks into a ZIP file)
-
-#### md_to_json - Convert Markdown Tables to JSON
-```bash
-markdown-exporter md_to_json <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (JSON file path)
-- **Options**: `--style` (JSON output style: jsonl or json_array), `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_xml - Convert Markdown to XML
-```bash
-markdown-exporter md_to_xml <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (XML file path)
-- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_latex - Convert Markdown Tables to LaTeX
-```bash
-markdown-exporter md_to_latex <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (LaTeX file path)
-- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_html - Convert Markdown to HTML
-```bash
-markdown-exporter md_to_html <input> <output> [options]
-```
-- **Arguments**: `input` (Markdown file path), `output` (HTML file path)
-- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
-
-#### md_to_html_text - Convert Markdown to HTML Text
-```bash
-markdown-exporter md_to_html_text <input>
-```
-- **Arguments**: `input` (Markdown file path)
-
-#### md_to_jira - Convert Markdown to Jira Wiki Markup
-```bash
-markdown-exporter md_to_jira <input>
-```
-- **Arguments**: `input` (Markdown file path)
-
 #### md_to_md - Convert Markdown to MD File
 ```bash
 markdown-exporter md_to_md <input> <output>
@@ -613,10 +549,59 @@ markdown-exporter md_to_ipynb <input> <output> [options]
 - **Arguments**: `input` (Markdown file path), `output` (IPYNB file path)
 - **Options**: `--strip-wrapper` (Remove code block wrapper if present)
 
+#### md_to_pptx - Convert Markdown to PPTX
+```bash
+markdown-exporter md_to_pptx <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (PPTX file path)
+- **Options**: `--template` (Path to PPTX template file)
+
+#### md_to_xlsx - Convert Markdown Tables to XLSX
+```bash
+markdown-exporter md_to_xlsx <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (XLSX file path)
+- **Options**: `--force-text` (Convert cell values to text type), `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_csv - Convert Markdown Tables to CSV
+```bash
+markdown-exporter md_to_csv <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (CSV file path)
+- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_json - Convert Markdown Tables to JSON
+```bash
+markdown-exporter md_to_json <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (JSON file path)
+- **Options**: `--style` (JSON output style: jsonl or json_array), `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_xml - Convert Markdown Tables to XML
+```bash
+markdown-exporter md_to_xml <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (XML file path)
+- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_latex - Convert Markdown Tables to LaTeX
+```bash
+markdown-exporter md_to_latex <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (LaTeX file path)
+- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_codeblock - Extract Code Blocks to Files
+```bash
+markdown-exporter md_to_codeblock <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (Output directory or ZIP file path)
+- **Options**: `--compress` (Compress all code blocks into a ZIP file)
+
 ### Important Notes
 - All commands only support file paths as input
 - The package handles all dependency management automatically
-- You can run the command from anywhere in your system, no need to navigate to the project directory
+- You can run the command from anywhere on your system — no need to navigate to the project directory
 - Use `markdown-exporter <subcommand> -h` for detailed help on each subcommand
 
 ---
@@ -788,7 +773,6 @@ Releases are available at:
   - Support exporting Markdown to DOCX, PPTX, XLSX, PDF, HTML, MD, CSV, JSON, XML, and LaTeX files
 
 ---
-
 
 ## 🤝 Contributing
 
