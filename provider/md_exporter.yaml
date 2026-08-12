@@ -6,13 +6,15 @@ identity:
     zh_Hans: Markdown 转换器
     ja_JP: Markdownエクスポーター
   description:
-    en_US: Export Markdown to DOCX, PPTX, XLSX, PDF, PNG, HTML, IPYNB, CSV, JSON, JSONL, XML files, Jira wiki markup, and extract code blocks to Python, Bash, JS and etc files.
-    zh_Hans: 导出 Markdown 为 DOCX, PPTX, XLSX, PDF, PNG, HTML, IPYNB, CSV, JSON, JSONL, XML 文件及 Jira 文本标记, 并将代码块导出为各类脚本文件(Python, JS, Bash等)。
-    ja_JP: MarkdownをDOCX, PPTX, XLSX, PDF, PNG, HTML, IPYNB, CSV, JSON, JSONL, XML ファイルやJira Wikiマークアップとしてエクスポートし、さらにコードブロックを各種スクリプトファイルとしてエクスポートします
+    en_US: Export Markdown to DOCX, PPTX, XLSX, PDF, PNG, SVG, HTML, IPYNB, CSV, JSON, JSONL, XML files, Jira wiki markup, and extract code blocks to Python, Bash, JS and etc files.
+    zh_Hans: 导出 Markdown 为 DOCX, PPTX, XLSX, PDF, PNG, SVG, HTML, IPYNB, CSV, JSON, JSONL, XML 文件及 Jira 文本标记, 并将代码块导出为各类脚本文件(Python, JS, Bash等)。
+    ja_JP: MarkdownをDOCX, PPTX, XLSX, PDF, PNG, SVG, HTML, IPYNB, CSV, JSON, JSONL, XML ファイルやJira Wikiマークアップとしてエクスポートし、さらにコードブロックを各種スクリプトファイルとしてエクスポートします
   icon: icon.png
 tools:
   - tools/md_to_docx/md_to_docx.yaml
   - tools/md_to_pdf/md_to_pdf.yaml
+  - tools/md_to_png/md_to_png.yaml
+  - tools/md_to_svg/md_to_svg.yaml
   - tools/md_to_xlsx/md_to_xlsx.yaml
   - tools/md_to_pptx/md_to_pptx.yaml
   - tools/md_to_ipynb/md_to_ipynb.yaml

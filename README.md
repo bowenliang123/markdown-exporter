@@ -60,7 +60,7 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
   </tr>
   <tr>
     <td><code>md_to_docx</code></td>
-    <td rowspan="7">📝 Markdown text</td>
+    <td rowspan="9">📝 Markdown text</td>
     <td>📄 Word document (.docx)</td>
   </tr>
   <tr>
@@ -78,6 +78,14 @@ With support for **15+ output formats**, Markdown Exporter bridges the gap betwe
   <tr>
     <td><code>md_to_pdf</code></td>
     <td>📑 PDF file (.pdf)</td>
+  </tr>
+  <tr>
+    <td><code>md_to_png</code></td>
+    <td>🖼️ PNG image (.png), single long page or one image per page</td>
+  </tr>
+  <tr>
+    <td><code>md_to_svg</code></td>
+    <td>🖼️ SVG image (.svg), one image per page</td>
   </tr>
   <tr>
     <td><code>md_to_md</code></td>
@@ -332,6 +340,22 @@ Generate professional PDF documents perfect for printing or sharing.
 
 ---
 
+### 🖼️ Markdown → PNG
+
+Render your Markdown as PNG image(s) — a single long-page image, or one image per A4 page.
+
+![PNG Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_png_1.png)
+
+---
+
+### 🖼️ Markdown → SVG
+
+Render your Markdown as scalable vector SVG image(s), one SVG per page.
+
+![SVG Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_svg_1.svg)
+
+---
+
 ### 🏷️ Markdown → Jupyter Notebook
 
 Transform your Markdown into Jupyter Notebook `.ipynb` format.
@@ -492,6 +516,20 @@ markdown-exporter md_to_csv <input> <output> [options]
 markdown-exporter md_to_pdf <input> <output> [options]
 ```
 - **Arguments**: `input` (Markdown file path), `output` (PDF file path)
+- **Options**: `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_png - Convert Markdown to PNG
+```bash
+markdown-exporter md_to_png <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (PNG file path)
+- **Options**: `--multi-page` (Export one numbered PNG per A4 page instead of a single long-page PNG), `--strip-wrapper` (Remove code block wrapper if present)
+
+#### md_to_svg - Convert Markdown to SVG
+```bash
+markdown-exporter md_to_svg <input> <output> [options]
+```
+- **Arguments**: `input` (Markdown file path), `output` (SVG file path). One SVG per page; numbered files are generated when the document has multiple pages
 - **Options**: `--strip-wrapper` (Remove code block wrapper if present)
 
 #### md_to_docx - Convert Markdown to DOCX
