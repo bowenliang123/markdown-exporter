@@ -15,7 +15,8 @@ from urllib.parse import urlparse
 from .markdown_utils import get_md_text
 from .text_utils import contains_chinese, contains_japanese_kana, contains_korean, detect_cjk_language
 
-# Directory containing bundled Noto Sans CJK fonts (SIL OFL 1.1, see LICENSE there)
+# Directory containing bundled Noto Sans CJK and Twemoji Mozilla fonts
+# (SIL OFL 1.1 and CC-BY 4.0 respectively, see LICENSE there)
 FONTS_DIR = Path(__file__).resolve().parent.parent / "assets" / "fonts"
 
 # Font stacks for each CJK region. The region-specific font is listed first so
@@ -224,10 +225,11 @@ def compile_markdown_with_typst(
         typ_file_path = work_path / "doc.typ"
         typ_file_path.write_text(typst_source, encoding="utf-8")
 
-        font_paths = [str(FONTS_DIR)] if include_cjk_font else []
+        # Always load the bundled font directory so the emoji font is available
+        # even in documents without CJK text; unused fonts cost nothing.
         return typst.compile(
             input=str(typ_file_path),
             output=str(output_path) if output_path else None,
-            font_paths=font_paths,
+            font_paths=[str(FONTS_DIR)],
             format=format,
         )
