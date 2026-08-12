@@ -402,7 +402,8 @@ Effortlessly extract code blocks from your Markdown and save them as individual 
 | Bash       | `.sh`          | Java       | `.java`        |
 | JSON       | `.json`        | PHP        | `.php`         |
 | XML        | `.xml`         | Markdown   | `.md`          |
-| SVG        | `.svg`         |            |                |
+| SVG        | `.svg`         | Julia      | `.jl`          |
+| Rust       | `.rs`          |            |                |
 
 ![Code Block Example 1](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/usage_md_to_codeblock_2.png)
 
