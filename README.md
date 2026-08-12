@@ -339,7 +339,7 @@ Render your Markdown as PNG image(s) — a single long-page image, or one image 
 
 Render your Markdown as scalable vector SVG image(s), one SVG per page.
 
-![SVG Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_svg_1.svg)
+![SVG Example](https://raw.githubusercontent.com/bowenliang123/markdown-exporter/main/_assets/screenshots/md_to_svg_1.png)
 
 ---
 
