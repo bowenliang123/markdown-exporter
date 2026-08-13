@@ -43,6 +43,46 @@ jobs:
           name: release-dists
           path: dist/
 
+  github-release:
+    name: Attach assets to GitHub Release
+    runs-on: ubuntu-latest
+    needs:
+      - release-build
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Retrieve Python distributions
+        uses: actions/download-artifact@v8
+        with:
+          name: release-dists
+          path: dist/
+
+      - name: Package Dify plugin
+        id: package
+        run: |
+          mkdir -p $RUNNER_TEMP/bin
+          cd $RUNNER_TEMP/bin
+          wget https://github.com/langgenius/dify-plugin-daemon/releases/latest/download/dify-plugin-linux-amd64
+          chmod +x dify-plugin-linux-amd64
+          cd $GITHUB_WORKSPACE
+          PLUGIN_NAME=$(grep "^name:" manifest.yaml | cut -d' ' -f2)
+          VERSION=$(grep "^version:" manifest.yaml | cut -d' ' -f2)
+          PACKAGE_NAME="$PLUGIN_NAME-$VERSION.difypkg"
+          $RUNNER_TEMP/bin/dify-plugin-linux-amd64 plugin package . -o "$PACKAGE_NAME"
+          echo "package_name=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+
+      - name: Upload assets to GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${{ github.event.release.tag_name }}" \
+            dist/* \
+            "${{ steps.package.outputs.package_name }}" \
+            --clobber
+
   pypi-publish:
     runs-on: ubuntu-latest
     needs:
