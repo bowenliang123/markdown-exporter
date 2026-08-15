@@ -8,7 +8,8 @@ import tempfile
 
 from md_exporter.utils import get_logger
 
-DEFAULT_ENABLED_INPUT_EXTENSIONS = []
+# Preserve line-separated Markdown content as hard breaks across DOCX/PPTX/PDF exports.
+DEFAULT_ENABLED_INPUT_EXTENSIONS = ["hard_line_breaks"]
 DEFAULT_DISABLED_INPUT_EXTENSIONS = [
     "blank_before_header",  # https://pandoc.org/MANUAL.html#extension-blank_before_header
     "space_in_atx_header",  # https://pandoc.org/MANUAL.html#extension-space_in_atx_header
