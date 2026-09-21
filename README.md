@@ -10,6 +10,7 @@
       <img alt="OpenClaw" src="https://img.shields.io/badge/🦞OpenClaw-markdown--exporter-red"></a>
   <a href="https://pypi.org/project/md-exporter/" target="_blank">
       <img alt="PyPI" src="https://img.shields.io/badge/PyPI-md--exporter-yellow?logo=python"></a>
+  [![Install with AIPM](https://www.aipm-registry.com/install-with-aipm.svg)](https://www.aipm-registry.com/skills/bowenliang123/markdown-exporter/1.0.0?utm_source=github&utm_medium=readme&utm_campaign=package_badge)
 </p>
 
 # Markdown Exporter
