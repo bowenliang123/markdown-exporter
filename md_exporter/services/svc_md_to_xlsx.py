@@ -14,6 +14,27 @@ from openpyxl.styles import Alignment
 from ..utils.markdown_utils import get_md_text
 from ..utils.table_utils import SUGGESTED_SHEET_NAME, parse_md_to_tables
 
+# Characters Excel does not allow in sheet names
+INVALID_SHEET_NAME_CHARS = str.maketrans({c: "_" for c in "/\\?*[]:"})
+MAX_SHEET_NAME_LENGTH = 31
+
+
+def _get_valid_sheet_name(name: str | None, index: int, used_names: set[str]) -> str:
+    """
+    Make a sheet name that Excel accepts: replace forbidden characters, strip leading/trailing
+    apostrophes, limit to 31 characters, and keep it unique (case-insensitive) within the workbook
+    """
+    base = (name or "").translate(INVALID_SHEET_NAME_CHARS).strip().strip("'")[:MAX_SHEET_NAME_LENGTH].strip()
+    base = base or f"Sheet{index + 1}"
+    sheet_name = base
+    suffix_number = 2
+    while sheet_name.lower() in used_names:
+        suffix = f" ({suffix_number})"
+        sheet_name = base[: MAX_SHEET_NAME_LENGTH - len(suffix)] + suffix
+        suffix_number += 1
+    used_names.add(sheet_name.lower())
+    return sheet_name
+
 
 def convert_md_to_xlsx(
     md_text: str, output_path: Path, is_strip_wrapper: bool = False, force_text: bool = True
@@ -43,8 +64,9 @@ def convert_md_to_xlsx(
 
     try:
         with pd.ExcelWriter(temp_xlsx_path, engine="openpyxl") as writer:
+            used_sheet_names: set[str] = set()
             for i, table in enumerate(tables):
-                sheet_name = table.attrs.get(SUGGESTED_SHEET_NAME, f"Sheet{i + 1}")
+                sheet_name = _get_valid_sheet_name(table.attrs.get(SUGGESTED_SHEET_NAME), i, used_sheet_names)
                 table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep="")
 
                 worksheet = writer.sheets[sheet_name]

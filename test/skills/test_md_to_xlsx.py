@@ -45,3 +45,35 @@ class TestMdToXlsx(TestBase):
         # Regular cell should not contain a newline
         item_2_description = worksheet.cell(row=3, column=description_col)
         self.assertEqual(item_2_description.value, "Single line")
+
+    def test_md_to_xlsx_sheet_names_follow_preceding_headings(self):
+        """Each sheet should be named after the heading right before its table,
+        even when a document title without a table comes first."""
+        input_file = "test/resources/example_md_table_sheet_names.md"
+        output_file = "test_output/test_sheet_names.xlsx"
+
+        self.run_script("parser/cli_md_to_xlsx.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        workbook = load_workbook(output_file)
+        self.assertEqual(workbook.sheetnames, ["Monthly Metrics", "Complaints", "Suppliers"])
+        self.assertEqual(workbook["Monthly Metrics"]["A2"].value, "2026-07")
+        self.assertEqual(workbook["Complaints"]["A2"].value, "KS-031")
+        self.assertEqual(workbook["Suppliers"]["A2"].value, "Supplier A")
+
+    def test_md_to_xlsx_sanitizes_invalid_sheet_names(self):
+        """Headings with characters Excel forbids in sheet names (/ \\ ? * [ ] :), longer than
+        31 characters, or shared by several tables should still produce valid, unique sheet names."""
+        input_file = "test/resources/example_md_table_invalid_sheet_names.md"
+        output_file = "test_output/test_invalid_sheet_names.xlsx"
+
+        self.run_script("parser/cli_md_to_xlsx.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        workbook = load_workbook(output_file)
+        self.assertEqual(
+            workbook.sheetnames,
+            ["Suppliers 7_8_9_ _Q3_", "Suppliers 7_8_9_ _Q3_ (2)", "A very long heading that exceed"],
+        )
+        self.assertEqual(workbook["Suppliers 7_8_9_ _Q3_"]["A2"].value, "Supplier A")
+        self.assertEqual(workbook["Suppliers 7_8_9_ _Q3_ (2)"]["A2"].value, "Supplier C")

@@ -30,6 +30,22 @@ def extract_headings(html_str: str, extract_headings_for_sheet_names: bool) -> l
     return headings
 
 
+def _extract_table_headings(html_str: str, extract_headings_for_sheet_names: bool) -> list[str]:
+    """Return, for each table in document order, the nearest heading before it ("" if none)"""
+    if not extract_headings_for_sheet_names:
+        return []
+
+    soup = BeautifulSoup(html_str, "html.parser")
+    table_headings = []
+    last_heading = ""
+    for tag in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "table"]):
+        if tag.name == "table":
+            table_headings.append(last_heading)
+        else:
+            last_heading = tag.text.strip()
+    return table_headings
+
+
 def _replace_br_tags_with_placeholder(html_str: str) -> str:
     """Replace <br> tags with a placeholder so pandas.read_html preserves line breaks."""
     return BR_TAG_PATTERN.sub(LINE_BREAK_PLACEHOLDER, html_str)
@@ -58,7 +74,10 @@ def parse_md_to_tables(
         html_str = markdown.markdown(text=md_text, extensions=["tables"])
         html_str = _replace_br_tags_with_placeholder(html_str)
         tables: list[pd.DataFrame] = pd.read_html(StringIO(html_str), encoding="utf-8")
-        headings: list[str] = extract_headings(html_str, extract_headings_for_sheet_names)
+        headings: list[str] = _extract_table_headings(html_str, extract_headings_for_sheet_names)
+        if len(headings) != len(tables):
+            # Fall back to default sheet names rather than guessing which heading belongs to which table
+            headings = []
 
         def post_process_table(table: pd.DataFrame) -> pd.DataFrame:
             table = table.fillna("")
@@ -73,7 +92,7 @@ def parse_md_to_tables(
         for i, table in enumerate(tables):
             if not table.empty:
                 process_table = post_process_table(table)
-                if headings and i < len(headings):
+                if headings and headings[i]:
                     process_table.attrs[SUGGESTED_SHEET_NAME] = headings[i]
                 result_tables.append(process_table)
 
