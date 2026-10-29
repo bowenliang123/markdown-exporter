@@ -287,7 +287,7 @@ markdown-exporter md_to_xlsx <input> <output> [options]
 - `output` - Output XLSX file path
 
 **Options:**
-- `--force-text` - Convert cell values to text type (default: True)
+- `--force-text` / `--no-force-text` - Convert cell values to text type (default: `--force-text`)
 - `--strip-wrapper` - Remove code block wrapper if present
 
 **Examples:**
@@ -306,7 +306,7 @@ markdown-exporter md_to_xlsx <input> <output> [options]
 
 3. **With force-text disabled**:
    ```bash
-   markdown-exporter md_to_xlsx /path/input.md /path/output.xlsx --force-text False
+   markdown-exporter md_to_xlsx /path/input.md /path/output.xlsx --no-force-text
    ```
    This allows Excel to automatically determine cell types.
 

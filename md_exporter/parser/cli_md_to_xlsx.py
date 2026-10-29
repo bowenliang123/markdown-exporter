@@ -21,7 +21,10 @@ def main():
     parser.add_argument("input", help="Input Markdown file path")
     parser.add_argument("output", help="Output XLSX file path")
     parser.add_argument(
-        "--force-text", action="store_true", default=True, help="Convert cell values to text type (default: True)"
+        "--force-text",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Convert cell values to text type (on by default); use --no-force-text to keep numbers as numbers",
     )
     parser.add_argument("--strip-wrapper", action="store_true", help="Remove code block wrapper if present")
 

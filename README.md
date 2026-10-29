@@ -562,7 +562,7 @@ markdown-exporter md_to_pptx <input> <output> [options]
 markdown-exporter md_to_xlsx <input> <output> [options]
 ```
 - **Arguments**: `input` (Markdown file path), `output` (XLSX file path)
-- **Options**: `--force-text` (Convert cell values to text type), `--strip-wrapper` (Remove code block wrapper if present)
+- **Options**: `--force-text` / `--no-force-text` (Convert cell values to text type, on by default), `--strip-wrapper` (Remove code block wrapper if present)
 
 #### md_to_csv - Convert Markdown Tables to CSV
 ```bash
