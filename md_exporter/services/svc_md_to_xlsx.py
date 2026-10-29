@@ -9,7 +9,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import pandas as pd
-from openpyxl.styles import Alignment
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
 from ..utils.markdown_utils import get_md_text
 from ..utils.table_utils import SUGGESTED_SHEET_NAME, parse_md_to_tables
@@ -53,6 +53,21 @@ def convert_md_to_xlsx(
                     for cell in row:
                         if cell.value and isinstance(cell.value, str) and "\n" in cell.value:
                             cell.alignment = Alignment(wrap_text=True)
+
+                # Style the header row the way pandas < 3.0 did by default (bold, centered, thin borders;
+                # pandas 3.0 no longer applies any header style), plus a light gray fill
+                thin_side = Side(style="thin")
+                thin_border = Border(left=thin_side, right=thin_side, top=thin_side, bottom=thin_side)
+                for cell in worksheet[1]:
+                    cell.font = Font(bold=True)
+                    cell.fill = PatternFill(fill_type="solid", fgColor="D9D9D9")
+                    cell.border = thin_border
+                    cell.alignment = Alignment(horizontal="center", vertical="top", wrap_text=cell.alignment.wrap_text)
+
+                # Outline every data cell too, so the sheet reads as a table
+                for row in worksheet.iter_rows(min_row=2):
+                    for cell in row:
+                        cell.border = thin_border
 
                 # Auto-fit column width if supported
                 if hasattr(writer.sheets[sheet_name], "autofit"):
