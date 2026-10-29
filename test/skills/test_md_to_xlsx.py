@@ -3,6 +3,27 @@ from test_base import TestBase
 
 
 class TestMdToXlsx(TestBase):
+    def test_md_to_xlsx_header_style(self):
+        """The header row should keep the style pandas < 3.0 applied by default
+        (bold, centered, thin borders), while data rows stay unstyled."""
+        input_file = "test/resources/example_md_table.md"
+        output_file = "test_output/test_header_style.xlsx"
+
+        self.run_script("parser/cli_md_to_xlsx.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        worksheet = load_workbook(output_file).active
+        assert worksheet is not None
+        for header_cell in worksheet[1]:
+            self.assertTrue(header_cell.font.b, f"{header_cell.coordinate} should be bold")
+            self.assertEqual(header_cell.alignment.horizontal, "center")
+            self.assertEqual(header_cell.alignment.vertical, "top")
+            border = header_cell.border
+            for side in (border.left, border.right, border.top, border.bottom):
+                self.assertEqual(side.style, "thin")
+        self.assertFalse(worksheet["A2"].font.b)
+        self.assertIsNone(worksheet["A2"].border.top.style)
+
     def test_md_to_xlsx(self):
         # Define input and output paths
         input_file = "test/resources/example_md_table.md"
