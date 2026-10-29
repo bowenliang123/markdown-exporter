@@ -5,11 +5,14 @@ Provides common functionality for converting Markdown tables to XLSX format
 """
 
 import os
+import unicodedata
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import pandas as pd
 from openpyxl.styles import Alignment
+from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.worksheet import Worksheet
 
 from ..utils.markdown_utils import get_md_text
 from ..utils.table_utils import SUGGESTED_SHEET_NAME, parse_md_to_tables
@@ -54,12 +57,36 @@ def convert_md_to_xlsx(
                         if cell.value and isinstance(cell.value, str) and "\n" in cell.value:
                             cell.alignment = Alignment(wrap_text=True)
 
-                # Auto-fit column width if supported
-                if hasattr(writer.sheets[sheet_name], "autofit"):
-                    writer.sheets[sheet_name].autofit(max_width=200)
+                # Auto-fit column widths (openpyxl worksheets have no autofit())
+                _autofit_columns(worksheet)
 
         # Read temp file and write to target
         output_path.write_bytes(Path(temp_xlsx_path).read_bytes())
     finally:
         # Clean up temporary file
         os.unlink(temp_xlsx_path)
+
+
+def _get_display_width(text: str) -> int:
+    """Approximate display width: wide and full-width characters (e.g. CJK) count as 2, others as 1"""
+    return sum(2 if unicodedata.east_asian_width(char) in ("W", "F") else 1 for char in text)
+
+
+def _autofit_columns(worksheet: Worksheet, max_width: int = 50) -> None:
+    """
+    Set each column's width to fit its longest line of text
+
+    Args:
+        worksheet: openpyxl worksheet to adjust
+        max_width: Maximum width (in characters) a column can grow to, excluding padding
+    """
+    column_widths: dict[int, int] = {}
+    for row in worksheet.iter_rows():
+        for cell in row:
+            if cell.value is None:
+                continue
+            text_width = max(_get_display_width(line) for line in str(cell.value).split("\n"))
+            column_widths[cell.column] = max(column_widths.get(cell.column, 0), text_width)
+
+    for column_index, text_width in column_widths.items():
+        worksheet.column_dimensions[get_column_letter(column_index)].width = min(text_width, max_width) + 2

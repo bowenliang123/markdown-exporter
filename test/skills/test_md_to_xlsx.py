@@ -14,6 +14,24 @@ class TestMdToXlsx(TestBase):
         # Verify the output file is not empty
         self.verify_output_file(output_file)
 
+    def test_md_to_xlsx_autofits_column_widths(self):
+        """Columns should be sized to their content (CJK characters count as double width),
+        capped at a maximum width, instead of all keeping Excel's default width."""
+        input_file = "test/resources/example_md_table_column_widths.md"
+        output_file = "test_output/test_column_widths.xlsx"
+
+        self.run_script("parser/cli_md_to_xlsx.py", input_file, output_file)
+        self.verify_output_file(output_file)
+
+        worksheet = load_workbook(output_file).active
+        assert worksheet is not None
+        # "ID": 2 characters + 2 padding
+        self.assertEqual(worksheet.column_dimensions["A"].width, 4)
+        # "新疆无核葡萄": 6 CJK characters at double width + 2 padding
+        self.assertEqual(worksheet.column_dimensions["B"].width, 14)
+        # Long description: capped at 50 + 2 padding
+        self.assertEqual(worksheet.column_dimensions["C"].width, 52)
+
     def test_md_to_xlsx_preserves_br_line_breaks(self):
         """Regression test for GitHub issues #77 and #65:
         <br> tags inside Markdown table cells should become line breaks in XLSX cells."""
