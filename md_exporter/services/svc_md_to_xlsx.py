@@ -5,14 +5,19 @@ Provides common functionality for converting Markdown tables to XLSX format
 """
 
 import os
+import re
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
 import pandas as pd
 from openpyxl.styles import Alignment
+from openpyxl.worksheet.worksheet import Worksheet
 
 from ..utils.markdown_utils import get_md_text
 from ..utils.table_utils import SUGGESTED_SHEET_NAME, parse_md_to_tables
+
+# A whole-cell percentage such as "12%", "-1.5%" or "1,234.5%"; group 1 captures the decimal digits
+PERCENT_PATTERN = re.compile(r"^[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d+))?%$")
 
 
 def convert_md_to_xlsx(
@@ -48,6 +53,9 @@ def convert_md_to_xlsx(
                 table.to_excel(writer, sheet_name=sheet_name, index=False, na_rep="")
 
                 worksheet = writer.sheets[sheet_name]
+                if not force_text:
+                    _convert_percent_cells(worksheet)
+
                 # Enable text wrapping for cells that contain line breaks
                 for row in worksheet.iter_rows():
                     for cell in row:
@@ -63,3 +71,25 @@ def convert_md_to_xlsx(
     finally:
         # Clean up temporary file
         os.unlink(temp_xlsx_path)
+
+
+def _convert_percent_cells(worksheet: Worksheet) -> None:
+    """
+    Store percentage strings in data rows (e.g. "99.23%") as numbers with a percent number format,
+    keeping the number of decimal places written in the source text
+
+    Args:
+        worksheet: openpyxl worksheet to convert in place
+    """
+    for row in worksheet.iter_rows(min_row=2):
+        for cell in row:
+            if not isinstance(cell.value, str):
+                continue
+            text = cell.value.strip()
+            match = PERCENT_PATTERN.match(text)
+            if not match:
+                continue
+            decimals = len(match.group(1) or "")
+            # Round away float noise such as 99.23 / 100 == 0.9923000000000001
+            cell.value = round(float(text[:-1].replace(",", "")) / 100, decimals + 2)
+            cell.number_format = "0." + "0" * decimals + "%" if decimals else "0%"
