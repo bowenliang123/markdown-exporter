@@ -21,7 +21,7 @@ def extract_headings(html_str: str, extract_headings_for_sheet_names: bool) -> l
 
     soup = BeautifulSoup(html_str, "html.parser")
     headings = []
-    for i in range(1, 6):
+    for i in range(1, 7):
         for tag in soup.find_all(f"h{i}"):
             tag_text = tag.text.strip()
             if tag_text:
